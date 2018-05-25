@@ -7,7 +7,7 @@ public class UserList {
     private String name;
     private String idCard;
     private String phone;
-    private Integer user_id;
+    private Integer userId;
     private List<Apply> apply;
     private List<ZuList> zuList;
     private List<Checkout> checkout;
@@ -86,12 +86,12 @@ public class UserList {
         this.phone = phone;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
 }

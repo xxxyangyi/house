@@ -7,7 +7,7 @@ import dao.ApplyoutMapper;
 import dao.CheckoutMapper;
 import dao.ContractMapper;
 import dao.HouseListMapper;
-import dao.ZulistMapper;
+import dao.ZuListMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +27,7 @@ public class ApplyOutServiceImpl implements ApplyOutService {
     @Autowired
     private CheckoutMapper checkoutMapper;
     @Autowired
-    private ZulistMapper zulistMapper;
+    private ZuListMapper zulistMapper;
 
     @Override
     public void insertApplyOut(ZuList zulist) {
@@ -55,7 +55,7 @@ public class ApplyOutServiceImpl implements ApplyOutService {
     @Override
     public void agreeApplyOut(Integer id) {
         ApplyOut applyout = applyoutMapper.findbyid(id);
-        houselistMapper.deletehousebyhouseid(applyout.getHouseId());
+        houselistMapper.deleteHouseByHouseId(applyout.getHouseId());
         hetongMapper.deleteContract(applyout.getHouseId());
         Checkout checkout = new Checkout();
         checkout.setHouse_id(applyout.getHouseId());
@@ -65,7 +65,7 @@ public class ApplyOutServiceImpl implements ApplyOutService {
         checkoutMapper.insertcheckout(checkout);
         applyout.setStatus("已同意");
         applyoutMapper.updateapplyoutbyhouse(applyout);
-        zulistMapper.deletezulist(applyout.getHouseId());
+        zulistMapper.deleteZuList(applyout.getHouseId());
     }
 
     @Override

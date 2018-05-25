@@ -45,7 +45,7 @@ public class ApplyServiceImpl implements ApplyService {
 
     @Override
     public void refuseApply(HouseList houselist) {
-        houselistMapper.updatestatus(houselist);
+        houselistMapper.updateStatus(houselist);
         applyMapper.deleteByHouseId(houselist.getHouseId());
     }
 

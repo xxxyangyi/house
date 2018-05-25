@@ -21,49 +21,49 @@ public class HouseListServiceImpl implements HouseListService {
 
     @Override
     public HouseList findHouseId(String houseId) {
-        HouseList houseList = houseListMapper.findhouseid(houseId);
+        HouseList houseList = houseListMapper.findHouseId(houseId);
         return houseList;
     }
 
     @Override
     public void insertHouse(HouseList houseList) {
         // TODO Auto-generated method stub
-        houseListMapper.inserthouse(houseList);
+        houseListMapper.insertHouse(houseList);
     }
 
     @Override
     public void deleteHouse(int id) {
         // TODO Auto-generated method stub
-        houseListMapper.deletehouse(id);
+        houseListMapper.deleteHouse(id);
     }
 
     @Override
     public HouseList findHouseIdUpdate(HouseList houselist) {
-        HouseList list = houseListMapper.findhouseidupdate(houselist);
+        HouseList list = houseListMapper.findHouseIdUpdate(houselist);
         return list;
     }
 
     @Override
     public void updateHouse(HouseList houseList) {
-        houseListMapper.updatehouse(houseList);
+        houseListMapper.updateHouse(houseList);
 
     }
 
     @Override
     public HouseList findId(int id) {
-        HouseList list = houseListMapper.findid(id);
+        HouseList list = houseListMapper.findId(id);
         return list;
     }
 
     @Override
     public void updateHouseStatus(HouseList houseList) {
         // TODO Auto-generated method stub
-        houseListMapper.updatehousestatus(houseList);
+        houseListMapper.updateHouseStatus(houseList);
     }
 
     @Override
     public void deleteHouseByHouseId(String houseId) {
-        houseListMapper.deletehousebyhouseid(houseId);
+        houseListMapper.deleteHouseByHouseId(houseId);
 
     }
 

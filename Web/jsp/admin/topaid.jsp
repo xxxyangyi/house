@@ -45,7 +45,7 @@
     <div class="result-title">
         <h1>租客未缴列表</h1>
     </div>
-    <form action="/paid/topaidlist.action" method="post" name="myform">
+    <form action="<%=basePath %>/paid/topaidlist.action" method="post" name="myform">
 
 
         <div class="result-title">

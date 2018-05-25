@@ -47,7 +47,7 @@
     </div>
     <div class="search-wrap">
         <div class="search-content">
-            <form action="/paid/selectall.action" method="post" name="myform">
+            <form action="<%=basePath %>/paid/selectall.action" method="post" name="myform">
                 <table class="search-tab">
                     <tr>
                         <th width="120">租客姓名：</th>

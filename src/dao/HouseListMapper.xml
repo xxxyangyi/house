@@ -31,7 +31,7 @@
         </where>
 
     </select>
-    <select id="findhouselistByVoCount" parameterType="Pojo.QueryVo" resultType="int">
+    <select id="findHouseListByVoCount" parameterType="Pojo.QueryVo" resultType="int">
         select count(*)
         from houselist
         <where>
@@ -53,37 +53,37 @@
             </if>
         </where>
     </select>
-    <select id="findid" parameterType="Integer" resultType="Pojo.HouseList">
+    <select id="findId" parameterType="Integer" resultType="Pojo.HouseList">
 		select * from houselist where id=#{id}
 	</select>
-    <select id="findhouseid" parameterType="String" resultType="Pojo.HouseList">
+    <select id="findHouseId" parameterType="String" resultType="Pojo.HouseList">
 		select * from houselist where houseId=#{houseId}
 	</select>
-    <select id="findhouseidupdate" parameterType="Pojo.HouseList" resultType="Pojo.HouseList">
+    <select id="findHouseIdUpdate" parameterType="Pojo.HouseList" resultType="Pojo.HouseList">
 		select * from houselist where houseId=#{houseId} and id!=#{id}
 	</select>
-    <update id="updatehouse" parameterType="Pojo.HouseList">
+    <update id="updateHouse" parameterType="Pojo.HouseList">
 		update houselist set houseId=#{houseId},address=#{address},area=#{area},price=#{price},status=#{status}
 		where id=#{id}
 </update>
-    <update id="updatehousestatus" parameterType="Pojo.HouseList">
+    <update id="updateHouseStatus" parameterType="Pojo.HouseList">
 		update houselist set status=#{status}
 		where id=#{id}
 </update>
-    <update id="updatestatus" parameterType="Pojo.HouseList">
+    <update id="updateStatus" parameterType="Pojo.HouseList">
 		update houselist set status=#{status}
 		where houseId=#{houseId}
 </update>
 
-    <insert id="inserthouse" parameterType="Pojo.HouseList">
+    <insert id="insertHouse" parameterType="Pojo.HouseList">
 	  insert into houselist(houseId,address,area,price,status)
 	  values(#{houseId},#{address},#{area},#{price},#{status})
 	</insert>
 
-    <delete id="deletehouse" parameterType="Integer">
+    <delete id="deleteHouse" parameterType="Integer">
 		delete from houselist where id=#{id}
 	</delete>
-    <delete id="deletehousebyhouseid" parameterType="String">
+    <delete id="deleteHouseByHouseId" parameterType="String">
 		delete from houselist where houseId=#{houseId}
 	</delete>
 </mapper>

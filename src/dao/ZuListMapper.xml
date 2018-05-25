@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="dao.ZulistMapper">
+<mapper namespace="dao.ZuListMapper">
     <resultMap id="userlistzuResultMap" type="Pojo.ZuList">
         <id column="zid" property="zid" jdbcType="INTEGER"/>
         <result column="houseId" property="houseId" jdbcType="VARCHAR"/>
@@ -15,15 +15,15 @@
             <result column="name" property="name" jdbcType="VARCHAR"/>
             <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
             <result column="phone" property="phone" jdbcType="VARCHAR"/>
-            <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+            <result column="userId" property="userId" jdbcType="INTEGER"/>
         </association>
     </resultMap>
 
-    <insert id="insertzulist" parameterType="Pojo.ZuList">
+    <insert id="insertZuList" parameterType="Pojo.ZuList">
 	  insert into zuList(houseId,price,address,userListId,contractId)
 	  values(#{houseId},#{price},#{address},#{userListId},#{contractId})
 	</insert>
-    <select id="findzulistbyuid" parameterType="Integer" resultMap="userlistzuResultMap">
+    <select id="findZuListByUid" parameterType="Integer" resultMap="userlistzuResultMap">
 		SELECT
 			z.*,
 			u.*
@@ -31,7 +31,7 @@
 			zuList z
 		JOIN `userList` u ON u.id = z.userListId and u.id=#{userListId}
 	</select>
-    <select id="findzukezulist" parameterType="Integer" resultMap="userlistzuResultMap">
+    <select id="findZukeZuList" parameterType="Integer" resultMap="userlistzuResultMap">
 		SELECT
 			z.*,
 			u.*
@@ -39,19 +39,19 @@
 			zuList z
 		JOIN `userList` u ON u.id = z.userListId and z.zid=#{id}
 	</select>
-    <select id="findzuuserlist" resultMap="userlistzuResultMap">
+    <select id="findZuUserList" resultMap="userlistzuResultMap">
 		SELECT
 			z.*,
 			u.*
 		FROM
 			zuList z
-		JOIN `userList` u ON u.id = z.userListId
+		JOIN `userList` u ON u.id = z.userlist_id
 	</select>
-    <select id="findzulist" resultType="Pojo.ZuList" parameterType="String">
+    <select id="findZuList" resultType="Pojo.ZuList" parameterType="String">
 		SELECT * FROM
 			zuList WHERE houseId =#{houseId}
 	</select>
-    <delete id="deletezulist" parameterType="String">
+    <delete id="deleteZuList" parameterType="String">
 		delete from zuList where houseId=#{houseId}
 	</delete>
 </mapper>

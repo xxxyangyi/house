@@ -35,7 +35,7 @@
         <h1>退租申请列表</h1>
     </div>
     <form id="houseForm" name="houseForm"
-          action="/applyOut/getmyapplyout.action" method=post>
+          action="<%=basePath %>/applyOut/getmyapplyout.action" method=post>
         <div class="result-title">
             <div class="result-list"></div>
         </div>

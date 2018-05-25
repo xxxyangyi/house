@@ -37,7 +37,7 @@
         <h1>已退租列表</h1>
     </div>
     <form id="houseForm" name="houseForm"
-          action="/checkout/getmycheckout.action"
+          action="<%=basePath %>/checkout/getmycheckout.action"
           method=post>
         <div class="result-title">
             <div class="result-list">

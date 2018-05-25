@@ -38,7 +38,7 @@
         <h1>我要收租</h1>
     </div>
     <form id="houseForm" name="houseForm"
-          action="/paid/showaddpaid.action"
+          action="<%=basePath %>/paid/showaddpaid.action"
           method=post>
         <div class="result-title">
             <div class="result-list">

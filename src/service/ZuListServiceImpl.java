@@ -1,7 +1,7 @@
 package service;
 
 import Pojo.ZuList;
-import dao.ZulistMapper;
+import dao.ZuListMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,35 +11,35 @@ import java.util.List;
 public class ZuListServiceImpl implements ZuListService {
 
     @Autowired
-    private ZulistMapper zulistMapper;
+    private ZuListMapper zulistMapper;
 
     @Override
     public void insertZuList(ZuList zulist) {
-        zulistMapper.insertzulist(zulist);
+        zulistMapper.insertZuList(zulist);
 
     }
 
     @Override
     public List<ZuList> findZuUserList() throws Exception {
-        List<ZuList> zuList = zulistMapper.findzuuserlist();
+        List<ZuList> zuList = zulistMapper.findZuUserList();
         return zuList;
     }
 
     @Override
     public ZuList findZuList(String house_id) {
-        ZuList zulist = zulistMapper.findzulist(house_id);
+        ZuList zulist = zulistMapper.findZuList(house_id);
         return zulist;
     }
 
     @Override
     public void deleteZuList(String house_id) {
-        zulistMapper.deletezulist(house_id);
+        zulistMapper.deleteZuList(house_id);
 
     }
 
     @Override
     public List<ZuList> findZuListByUid(Integer userListId) {
-        List<ZuList> zuList = zulistMapper.findzulistbyuid(userListId);
+        List<ZuList> zuList = zulistMapper.findZuListByUid(userListId);
         return zuList;
     }
 

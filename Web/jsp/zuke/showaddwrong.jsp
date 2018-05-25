@@ -38,7 +38,7 @@
         <h1>我要报障</h1>
     </div>
     <form id="houseForm" name="houseForm"
-          action="/wrong/showaddwrong.action"
+          action="<%=basePath %>/wrong/showaddwrong.action"
           method=post>
         <div class="result-title">
             <div class="result-list">

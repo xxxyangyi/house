@@ -6,7 +6,7 @@
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
-        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+        <result column="userId" property="userId" jdbcType="INTEGER"/>
         <collection property="apply" ofType="Pojo.Apply">
             <id property="id" column="apply_id"/>
             <!--用户id已经在user对象中存在，此处可以不设置-->
@@ -24,7 +24,7 @@
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
-        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+        <result column="userId" property="userId" jdbcType="INTEGER"/>
         <collection property="zuList" ofType="Pojo.ZuList">
             <id property="zid" column="zid"/>
             <!--用户id已经在user对象中存在，此处可以不设置-->
@@ -42,7 +42,7 @@
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
-        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+        <result column="userId" property="userId" jdbcType="INTEGER"/>
         <collection property="checkout" ofType="Pojo.Checkout">
             <id property="id" column="cid"/>
             <!--用户id已经在user对象中存在，此处可以不设置-->
@@ -60,7 +60,7 @@
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
-        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+        <result column="userId" property="userId" jdbcType="INTEGER"/>
         <collection property="applyOut" ofType="Pojo.ApplyOut">
             <id property="id" column="aoid"/>
             <!--用户id已经在user对象中存在，此处可以不设置-->
@@ -78,7 +78,7 @@
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
-        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+        <result column="userId" property="userId" jdbcType="INTEGER"/>
         <association property="user" javaType="Pojo.User">
             <!-- column:user表的主键对应的列  property：user对象中id属性-->
             <id column="id" property="id"/>
@@ -92,25 +92,25 @@
   delete from user where id=#{id}
   </delete>
     <delete id="deleteuserlist" parameterType="Integer">
-  delete from userList where user_id=#{id}
+  delete from userList where userId=#{id}
   </delete>
     <select id="findalluserlist" resultMap="userMap">
 		SELECT
 	u.*, ul.*
 FROM
 	`user` u
-, userList ul where u.id = ul.user_id and u.type='zuke'
+, userList ul where u.id = ul.userId and u.type='zuke'
 	</select>
     <select id="findhasuserlist" parameterType="Integer" resultType="Pojo.UserList">
-		select * from userList where user_id=#{user_id}
+		select * from userList where userId=#{userId}
 	</select>
 
     <select id="checkuserlist" parameterType="String" resultType="Pojo.UserList">
 		select * from userList where idCard=#{idCard}
 	</select>
     <insert id="insertuserlist" parameterType="Pojo.UserList">
-	  insert into userList(name,idCard,phone,user_id)
-	  values(#{name},#{idCard},#{phone},#{user_id})
+	  insert into userList(name,idCard,phone,userId)
+	  values(#{name},#{idCard},#{phone},#{userId})
 	</insert>
     <select id="finduserlistupdate" parameterType="Pojo.UserList" resultType="Pojo.UserList">
 		select * from userList where idCard=#{idCard} and id!=#{id}

@@ -40,7 +40,7 @@
         <h1>房源列表</h1>
     </div>
     <form id="houseForm" name="houseForm"
-          action="houselist.action"
+          action="<%=basePath %>houselist.action"
           method=post>
         <div class="result-title">
             <div class="result-list">

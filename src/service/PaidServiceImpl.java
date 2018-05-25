@@ -4,7 +4,7 @@ import Pojo.Paid;
 import Pojo.QueryVo;
 import Pojo.ZuList;
 import dao.PaidMapper;
-import dao.ZulistMapper;
+import dao.ZuListMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +17,7 @@ public class PaidServiceImpl implements PaidService {
     @Autowired
     private PaidMapper paidMapper;
     @Autowired
-    private ZulistMapper zulistMapper;
+    private ZuListMapper zulistMapper;
 
     @Override
     public List<Paid> selectAll(QueryVo vo) {
@@ -39,13 +39,13 @@ public class PaidServiceImpl implements PaidService {
 
     @Override
     public List<ZuList> findZuUserList() throws Exception {
-        List<ZuList> list = zulistMapper.findzuuserlist();
+        List<ZuList> list = zulistMapper.findZuUserList();
         return list;
     }
 
     @Override
     public ZuList findzukeZuList(Integer id) {
-        ZuList zulist = zulistMapper.findzukezulist(id);
+        ZuList zulist = zulistMapper.findZukeZuList(id);
         return zulist;
     }
 

@@ -8,23 +8,23 @@ import java.util.List;
 public interface HouseListMapper {
     List<HouseList> selectAll();
 
-    public Integer findhouselistByVoCount(QueryVo vo);
+    Integer findHouseListByVoCount(QueryVo vo);
 
-    HouseList findhouseid(String houseid);
+    HouseList findHouseId(String houseId);
 
-    void inserthouse(HouseList houselist);
+    void insertHouse(HouseList houseList);
 
-    void deletehouse(int id);
+    void deleteHouse(int id);
 
-    HouseList findid(int id);
+    HouseList findId(int id);
 
-    HouseList findhouseidupdate(HouseList houselist);
+    HouseList findHouseIdUpdate(HouseList houseList);
 
-    void updatehouse(HouseList houselist);
+    void updateHouse(HouseList houseList);
 
-    void updatehousestatus(HouseList houselist);
+    void updateHouseStatus(HouseList houseList);
 
-    public void deletehousebyhouseid(String house_id);
+    void deleteHouseByHouseId(String houseId);
 
-    public void updatestatus(HouseList houselist);
+    void updateStatus(HouseList houseList);
 }

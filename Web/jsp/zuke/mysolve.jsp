@@ -47,7 +47,7 @@
     </div>
     <div class="search-wrap">
         <div class="search-content">
-            <form action="/wrong/findmysolve.action" method="post" name="myform">
+            <form action="<%=basePath %>/wrong/findmysolve.action" method="post" name="myform">
                 <table class="search-tab">
                     <tr>
 

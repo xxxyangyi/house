@@ -235,7 +235,7 @@ CREATE TABLE `userList` (
   `name` varchar(255) DEFAULT NULL,
   `idCard` varchar(255) NOT NULL,
   `phone` varchar(255) DEFAULT NULL,
-  `user_id` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
   PRIMARY KEY (`id`,`idCard`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 

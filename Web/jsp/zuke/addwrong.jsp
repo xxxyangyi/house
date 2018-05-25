@@ -2,7 +2,10 @@
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -66,7 +69,7 @@
 </div>
 <div class="result-content">
     <div class="sidebar-title">
-        <form action="/wrong/insertwrong.action" method="post" id="myform" name="myform" enctype="multipart/form-data">
+        <form action="<%=basePath %>/wrong/insertwrong.action" method="post" id="myform" name="myform" enctype="multipart/form-data">
             <table class="insert-tab" width="100%">
                 <tbody>
                 <th><i class="require-red">*</i>房屋id：</th>

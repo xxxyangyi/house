@@ -38,7 +38,7 @@
         <h1>待处理报障</h1>
     </div>
     <form id="houseForm" name="houseForm"
-          action="/wrong/mywronglist.action"
+          action="<%=basePath %>/wrong/mywronglist.action"
           method=post>
         <div class="result-title">
             <div class="result-list">

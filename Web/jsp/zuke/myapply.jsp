@@ -35,7 +35,7 @@
         <h1>看房申请列表</h1>
     </div>
     <form id="houseForm" name="houseForm"
-          action="/getmyapply.action" method=post>
+          action="<%=basePath %>/getmyapply.action" method=post>
         <div class="result-title">
             <div class="result-list"></div>
         </div>

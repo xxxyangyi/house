@@ -46,7 +46,7 @@ public class UserListController {
             } else {
                 User user1 = (User) httpSession.getAttribute("user");
                 Integer user_id = user1.getId();
-                userList.setUser_id(user_id);
+                userList.setUserId(user_id);
                 userlistService.insertUserList(userList);
                 UserList list1 = userlistService.checkUserList(idCard);
                 model.addAttribute("error", "资料完善成功");

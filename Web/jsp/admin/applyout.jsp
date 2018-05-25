@@ -39,7 +39,7 @@
         <h1>退租申请</h1>
     </div>
     <form id="houseForm" name="houseForm"
-          action="/applyOut/findallapplyout.action"
+          action="<%=basePath %>/applyOut/findallapplyout.action"
           method=post>
         <div class="result-title">
             <div class="result-list">

@@ -19,7 +19,6 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping("/applyout")
 public class ApplyOutController {
     @Autowired
     private ZuListService zuListService;
@@ -29,7 +28,7 @@ public class ApplyOutController {
     private UserListService userlistService;
 
     //插入退租信息
-    @RequestMapping("/insertapplyout")
+    @RequestMapping("/applyout/insertapplyout")
     public String insertapplyout(String house_id, Model model) {
         ZuList zulist = zuListService.findZuList(house_id);
         applyoutService.insertApplyOut(zulist);
@@ -38,7 +37,7 @@ public class ApplyOutController {
     }
 
     //查看退租申请
-    @RequestMapping("/findallapplyout")
+    @RequestMapping("/applyout/findallapplyout")
     public String findallapplyout(Model model, @RequestParam(required = false, defaultValue = "1") Integer page,
                                   @RequestParam(required = false, defaultValue = "2") Integer pageSize) {
         PageHelper.startPage(page, pageSize);
@@ -51,7 +50,7 @@ public class ApplyOutController {
     }
 
     //管理员拒绝退租申请
-    @RequestMapping("/refuseapplyout")
+    @RequestMapping("/applyout/refuseapplyout")
     public String refuseapplyout(Model model, Integer id) {
         ApplyOut applyout = new ApplyOut();
         applyout.setId(id);
@@ -62,7 +61,7 @@ public class ApplyOutController {
     }
 
     //管理员同意退租申请
-    @RequestMapping("/agreeapplyout")
+    @RequestMapping("/applyout/agreeapplyout")
     public String agreeapplyout(Model model, Integer id) {
         applyoutService.agreeApplyOut(id);
         model.addAttribute("error", "applyoutsucess");
@@ -70,7 +69,7 @@ public class ApplyOutController {
     }
 
     //删除申请退租列表
-    @RequestMapping("/deleteapplyout")
+    @RequestMapping("/applyout/deleteapplyout")
     public String deleteapplyout(Model model, Integer id) {
         applyoutService.deleteApplyOut(id);
         model.addAttribute("error", "deletesucess");
@@ -78,7 +77,7 @@ public class ApplyOutController {
     }
 
     //租客查看自己的 退房申请
-    @RequestMapping("/getmyapplyout")
+    @RequestMapping("/applyout/getmyapplyout")
     public String getmyapplyout(Model model, HttpSession httpSession, @RequestParam(required = false, defaultValue = "1") Integer page,
                                 @RequestParam(required = false, defaultValue = "2") Integer pageSize) {
         User user1 = (User) httpSession.getAttribute("user");

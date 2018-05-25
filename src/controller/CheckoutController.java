@@ -18,14 +18,14 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping("/checkout")
+@RequestMapping("")
 public class CheckoutController {
     @Autowired
     private CheckoutService checkoutService;
     @Autowired
     private UserListService userListService;
 
-    @RequestMapping("/getallcheckout")
+    @RequestMapping("/checkout/getallcheckout")
     public String getAllCheckout(Model model, @RequestParam(required = false, defaultValue = "1") Integer page,
                                  @RequestParam(required = false, defaultValue = "2") Integer pageSize) {
         PageHelper.startPage(page, pageSize);
@@ -38,20 +38,20 @@ public class CheckoutController {
     }
 
     //租客删除自己已退租列表
-    @RequestMapping("/deletecheckout")
+    @RequestMapping("/checkout/deletecheckout")
     public String deleteCheckout(Integer id) {
         checkoutService.deleteCheckOut(id);
         return "redirect:/checkout/getmycheckout.action";
     }
 
     //租客删除自己已退租列表
-    @RequestMapping("/admindeletecheckout")
+    @RequestMapping("/checkout/admindeletecheckout")
     public String adminDeleteCheckout(Integer id) {
         checkoutService.deleteCheckOut(id);
         return "redirect:/checkout/getallcheckout.action";
     }
 
-    @RequestMapping("/getmycheckout")
+    @RequestMapping("/checkout/getmycheckout")
     public String getMyCheckout(Model model, HttpSession httpSession, @RequestParam(required = false, defaultValue = "1") Integer page,
                                 @RequestParam(required = false, defaultValue = "2") Integer pageSize) {
         User user1 = (User) httpSession.getAttribute("user");
