@@ -1,15 +1,19 @@
 package service;
 
+import Pojo.Apply;
+import Pojo.HouseList;
+
 import java.util.List;
 
-import Pojo.Apply;
-import Pojo.Houselist;
-
 public interface ApplyService {
-	
-	public void insertapply(Apply apply);
-	public List<Apply> findapplylist() throws Exception;
-	Apply findbyhouse_id(String house_id);
-	public void deletebyhouse_id(String house_id);
-	public void refuseapply(Houselist houselist);
+
+    void insertApply(Apply apply);
+
+    List<Apply> findApplyList() throws Exception;
+
+    Apply findByHouseId(String house_id);
+
+    void deleteByHouseId(String house_id);
+
+    void refuseApply(HouseList houselist);
 }

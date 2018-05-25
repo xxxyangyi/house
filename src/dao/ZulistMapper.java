@@ -1,15 +1,19 @@
 package dao;
 
+import Pojo.ZuList;
+
 import java.util.List;
 
-import Pojo.Apply;
-import Pojo.Zulist;
-
 public interface ZulistMapper {
-	public void insertzulist(Zulist zulist);
-	public List<Zulist> findzuuserlist() throws Exception;
-	Zulist findzulist(String house_id);
-	public void deletezulist(String house_id);
-	public List<Zulist> findzulistbyuid(Integer userlist_id);
-	public Zulist findzukezulist(Integer id);
+    public void insertzulist(ZuList zulist);
+
+    public List<ZuList> findzuuserlist() throws Exception;
+
+    ZuList findzulist(String house_id);
+
+    public void deletezulist(String house_id);
+
+    public List<ZuList> findzulistbyuid(Integer userlist_id);
+
+    public ZuList findzukezulist(Integer id);
 }

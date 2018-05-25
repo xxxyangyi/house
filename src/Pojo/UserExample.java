@@ -8,46 +8,46 @@ public class UserExample {
 
     protected boolean distinct;
 
-    protected List<Criteria> oredCriteria;
+    protected List<Criteria> criteriaList;
 
     public UserExample() {
-        oredCriteria = new ArrayList<Criteria>();
-    }
-
-    public void setOrderByClause(String orderByClause) {
-        this.orderByClause = orderByClause;
+        criteriaList = new ArrayList<Criteria>();
     }
 
     public String getOrderByClause() {
         return orderByClause;
     }
 
-    public void setDistinct(boolean distinct) {
-        this.distinct = distinct;
+    public void setOrderByClause(String orderByClause) {
+        this.orderByClause = orderByClause;
     }
 
     public boolean isDistinct() {
         return distinct;
     }
 
-    public List<Criteria> getOredCriteria() {
-        return oredCriteria;
+    public void setDistinct(boolean distinct) {
+        this.distinct = distinct;
+    }
+
+    public List<Criteria> getCriteriaList() {
+        return criteriaList;
     }
 
     public void or(Criteria criteria) {
-        oredCriteria.add(criteria);
+        criteriaList.add(criteria);
     }
 
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
-        oredCriteria.add(criteria);
+        criteriaList.add(criteria);
         return criteria;
     }
 
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
-        if (oredCriteria.size() == 0) {
-            oredCriteria.add(criteria);
+        if (criteriaList.size() == 0) {
+            criteriaList.add(criteria);
         }
         return criteria;
     }
@@ -58,7 +58,7 @@ public class UserExample {
     }
 
     public void clear() {
-        oredCriteria.clear();
+        criteriaList.clear();
         orderByClause = null;
         distinct = false;
     }
@@ -399,38 +399,6 @@ public class UserExample {
 
         private String typeHandler;
 
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
-        }
-
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -465,6 +433,38 @@ public class UserExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
+        }
+
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
         }
     }
 }

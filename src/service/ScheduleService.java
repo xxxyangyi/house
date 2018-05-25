@@ -1,13 +1,17 @@
 package service;
 
-import java.util.List;
-
 import Pojo.Schedule;
 
+import java.util.List;
+
 public interface ScheduleService {
-	public void insertschedule(Schedule schedule);
-	public List<Schedule> selectAll();
-	public void deleteschedule(Integer id);
-	public void updateschedule(Schedule schedule);
-	public Schedule selectbyid(Integer id);
+     void insertSchedule(Schedule schedule);
+
+     List<Schedule> selectAll();
+
+     void deleteSchedule(Integer id);
+
+     void updateSchedule(Schedule schedule);
+
+     Schedule selectById(Integer id);
 }

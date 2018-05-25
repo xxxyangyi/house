@@ -21,13 +21,13 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `apply`;
 CREATE TABLE `apply` (
   `apply_id` int(11) NOT NULL AUTO_INCREMENT,
-  `house_id` varchar(255) NOT NULL,
+  `houseId` varchar(255) NOT NULL,
   `address` varchar(255) DEFAULT NULL,
   `area` double(255,0) DEFAULT NULL,
   `price` double(10,2) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  `userlist_id` int(255) NOT NULL,
-  PRIMARY KEY (`apply_id`,`house_id`)
+  `userListId` int(255) NOT NULL,
+  PRIMARY KEY (`apply_id`,`houseId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -35,23 +35,23 @@ CREATE TABLE `apply` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for applyout
+-- Table structure for applyOut
 -- ----------------------------
-DROP TABLE IF EXISTS `applyout`;
-CREATE TABLE `applyout` (
+DROP TABLE IF EXISTS `applyOut`;
+CREATE TABLE `applyOut` (
   `aoid` int(11) NOT NULL AUTO_INCREMENT,
-  `house_id` varchar(255) DEFAULT NULL,
+  `houseId` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  `userlist_id` int(11) DEFAULT NULL,
+  `userListId` int(11) DEFAULT NULL,
   PRIMARY KEY (`aoid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of applyout
+-- Records of applyOut
 -- ----------------------------
-INSERT INTO `applyout` VALUES ('3', 'b1', '桃源居', '已拒绝', '10');
-INSERT INTO `applyout` VALUES ('6', 'k2', '贝岗街18号', '已拒绝', '15');
+INSERT INTO `applyOut` VALUES ('3', 'b1', '桃源居', '已拒绝', '10');
+INSERT INTO `applyOut` VALUES ('6', 'k2', '贝岗街18号', '已拒绝', '15');
 
 -- ----------------------------
 -- Table structure for checkout
@@ -59,10 +59,10 @@ INSERT INTO `applyout` VALUES ('6', 'k2', '贝岗街18号', '已拒绝', '15');
 DROP TABLE IF EXISTS `checkout`;
 CREATE TABLE `checkout` (
   `cid` int(11) NOT NULL AUTO_INCREMENT,
-  `house_id` varchar(255) DEFAULT NULL,
+  `houseId` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  `userlist_id` int(11) DEFAULT NULL,
+  `userListId` int(11) DEFAULT NULL,
   PRIMARY KEY (`cid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
@@ -82,11 +82,11 @@ CREATE TABLE `hetong` (
   `chuzu_idcard` varchar(255) DEFAULT NULL,
   `zuke` varchar(255) DEFAULT NULL,
   `zuke_idcard` varchar(255) DEFAULT NULL,
-  `fromdate` varchar(255) DEFAULT NULL,
-  `todate` varchar(255) DEFAULT NULL,
+  `fromDate` varchar(255) DEFAULT NULL,
+  `toDate` varchar(255) DEFAULT NULL,
   `price` double(10,2) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
-  `house_id` varchar(255) DEFAULT NULL,
+  `houseId` varchar(255) DEFAULT NULL,
   `payday` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
@@ -102,12 +102,12 @@ INSERT INTO `hetong` VALUES ('5', '张三', '440411199208018201', '李四', '440
 DROP TABLE IF EXISTS `houselist`;
 CREATE TABLE `houselist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `houseid` varchar(255) NOT NULL,
+  `houseId` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `area` double DEFAULT NULL,
   `price` double(10,2) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`houseid`)
+  PRIMARY KEY (`id`,`houseId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -124,13 +124,13 @@ INSERT INTO `houselist` VALUES ('21', 'k8', '穗石村1号', '66', '800.00', '�
 DROP TABLE IF EXISTS `paid`;
 CREATE TABLE `paid` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `house_id` varchar(255) DEFAULT NULL,
+  `houseId` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `price` double(10,2) DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `paydate` date DEFAULT NULL,
+  `payDate` date DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `userlist_id` int(11) DEFAULT NULL,
+  `userListId` int(11) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
@@ -167,12 +167,12 @@ INSERT INTO `schedule` VALUES ('3', '2017-09-20', '今天是收租日');
 DROP TABLE IF EXISTS `solve`;
 CREATE TABLE `solve` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `house_id` varchar(255) DEFAULT NULL,
+  `houseId` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `detail` text,
   `name` varchar(255) DEFAULT NULL,
-  `userlist_id` int(11) DEFAULT NULL,
+  `userListId` int(11) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
@@ -192,12 +192,12 @@ INSERT INTO `solve` VALUES ('8', 'c1', '广药1-364', '2017-10-09', '空调漏�
 DROP TABLE IF EXISTS `topaid`;
 CREATE TABLE `topaid` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `house_id` varchar(255) DEFAULT NULL,
+  `houseId` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `price` double(10,2) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `userlist_id` int(11) DEFAULT NULL,
+  `userListId` int(11) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -227,23 +227,23 @@ INSERT INTO `user` VALUES ('3', 'zyx', '12345', 'zuke');
 INSERT INTO `user` VALUES ('5', 'cwy', '12345', 'zuke');
 
 -- ----------------------------
--- Table structure for userlist
+-- Table structure for userList
 -- ----------------------------
-DROP TABLE IF EXISTS `userlist`;
-CREATE TABLE `userlist` (
+DROP TABLE IF EXISTS `userList`;
+CREATE TABLE `userList` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
-  `idcard` varchar(255) NOT NULL,
+  `idCard` varchar(255) NOT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`idcard`)
+  PRIMARY KEY (`id`,`idCard`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of userlist
+-- Records of userList
 -- ----------------------------
-INSERT INTO `userlist` VALUES ('12', '李四', '440421199509088888', '18826107777', '3');
-INSERT INTO `userlist` VALUES ('15', '张思', '441601199312214414', '159192134000', '5');
+INSERT INTO `userList` VALUES ('12', '李四', '440421199509088888', '18826107777', '3');
+INSERT INTO `userList` VALUES ('15', '张思', '441601199312214414', '159192134000', '5');
 
 -- ----------------------------
 -- Table structure for wrong
@@ -251,12 +251,12 @@ INSERT INTO `userlist` VALUES ('15', '张思', '441601199312214414', '1591921340
 DROP TABLE IF EXISTS `wrong`;
 CREATE TABLE `wrong` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `house_id` varchar(255) DEFAULT NULL,
+  `houseId` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `detail` text,
   `name` varchar(255) DEFAULT NULL,
-  `userlist_id` int(11) DEFAULT NULL,
+  `userListId` int(11) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -266,21 +266,21 @@ CREATE TABLE `wrong` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for zulist
+-- Table structure for zuList
 -- ----------------------------
-DROP TABLE IF EXISTS `zulist`;
-CREATE TABLE `zulist` (
+DROP TABLE IF EXISTS `zuList`;
+CREATE TABLE `zuList` (
   `zid` int(11) NOT NULL AUTO_INCREMENT,
-  `house_id` varchar(255) NOT NULL,
+  `houseId` varchar(255) NOT NULL,
   `price` double(10,2) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
-  `userlist_id` int(11) NOT NULL,
-  `contract_id` int(11) NOT NULL,
-  PRIMARY KEY (`zid`,`house_id`)
+  `userListId` int(11) NOT NULL,
+  `contractId` int(11) NOT NULL,
+  PRIMARY KEY (`zid`,`houseId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of zulist
+-- Records of zuList
 -- ----------------------------
-INSERT INTO `zulist` VALUES ('7', 'c3', '700.00', '菊花园1-364', '12', '5');
+INSERT INTO `zuList` VALUES ('7', 'c3', '700.00', '菊花园1-364', '12', '5');
 SET FOREIGN_KEY_CHECKS=1;

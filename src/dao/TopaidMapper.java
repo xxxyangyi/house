@@ -1,13 +1,16 @@
 package dao;
 
+import Pojo.QueryVo;
+import Pojo.ToPaid;
+
 import java.util.List;
 
-import Pojo.QueryVo;
-import Pojo.Topaid;
-
 public interface TopaidMapper {
-public void inserttopaid(Topaid topaid);
-public List<Topaid> findtopaid(QueryVo vo);
-public Topaid findbyid(Integer id);
-public void deletetopaid(Integer id);
+    public void inserttopaid(ToPaid topaid);
+
+    public List<ToPaid> findtopaid(QueryVo vo);
+
+    public ToPaid findbyid(Integer id);
+
+    public void deletetopaid(Integer id);
 }

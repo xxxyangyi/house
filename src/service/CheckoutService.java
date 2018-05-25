@@ -1,13 +1,13 @@
 package service;
 
+import Pojo.Checkout;
+
 import java.util.List;
 
-import Pojo.Applyout;
-import Pojo.Checkout;
-import Pojo.Zulist;
-
 public interface CheckoutService {
-public void insertcheckout(Checkout checkout);
-public List<Checkout> getallcheckout();
-public void deletecheckout(Integer id);
+    void insertCheckOut(Checkout checkout);
+
+    List<Checkout> getAllCheckOut();
+
+    void deleteCheckOut(Integer id);
 }

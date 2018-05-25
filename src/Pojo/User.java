@@ -41,10 +41,10 @@ public class User {
         this.type = type == null ? null : type.trim();
     }
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", type=" + type + "]";
-	}
-    
-    
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", username=" + username + ", password=" + password + ", type=" + type + "]";
+    }
+
+
 }

@@ -1,13 +1,13 @@
 package service;
 
-import java.util.List;
-
 import Pojo.User;
-import Pojo.Userlist;
+
+import java.util.List;
 
 public interface UserService {
 
-	public List<User> userList() throws Exception;
-	public User login(User user) throws Exception;
-	
+    List<User> userList() throws Exception;
+
+    User login(User user) throws Exception;
+
 }

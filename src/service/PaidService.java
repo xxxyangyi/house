@@ -1,16 +1,20 @@
 package service;
 
-import java.util.List;
-
 import Pojo.Paid;
 import Pojo.QueryVo;
-import Pojo.Zulist;
+import Pojo.ZuList;
+
+import java.util.List;
 
 public interface PaidService {
-	public List<Paid> selectall(QueryVo vo);
-	public Double selectsum(QueryVo vo);
-	public void deletepaid(Integer id);
-	public List<Zulist> findzuuserlist() throws Exception;
-	public Zulist findzukezulist(Integer id);
-	
+    List<Paid> selectAll(QueryVo vo);
+
+    Double selectSum(QueryVo vo);
+
+    void deletePaid(Integer id);
+
+    List<ZuList> findZuUserList() throws Exception;
+
+    ZuList findzukeZuList(Integer id);
+
 }

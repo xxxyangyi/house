@@ -1,19 +1,23 @@
 package service;
 
-import java.util.List;
-
-import Pojo.Paid;
 import Pojo.QueryVo;
 import Pojo.Solve;
 import Pojo.Wrong;
 
+import java.util.List;
+
 public interface SolveService {
-	public List<Solve> selectall(QueryVo vo);
-	public Integer selectcount(QueryVo vo);
-	public void deletesolve(Integer id);
-	
-	public List<Wrong> findwrong(QueryVo vo);
-	public Wrong findbyid(Integer id);
-	 public void insertwrong(Wrong wrong);
-	 public void gotosolve(Integer id, Solve solve);
+    List<Solve> selectAll(QueryVo vo);
+
+    Integer selectCount(QueryVo vo);
+
+    void deleteSolve(Integer id);
+
+    List<Wrong> findWrong(QueryVo vo);
+
+    Wrong findById(Integer id);
+
+    void insertWrong(Wrong wrong);
+
+    void gotoSolve(Integer id, Solve solve);
 }

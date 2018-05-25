@@ -1,53 +1,53 @@
 package service;
 
-import java.util.List;
-
+import Pojo.Paid;
+import Pojo.QueryVo;
+import Pojo.ZuList;
+import dao.PaidMapper;
+import dao.ZulistMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import Pojo.Paid;
-import Pojo.QueryVo;
-import Pojo.Zulist;
-import dao.PaidMapper;
-import dao.ZulistMapper;
+import java.util.List;
+
 @Service
 @Transactional
 public class PaidServiceImpl implements PaidService {
-	@Autowired
-	private PaidMapper paidMapper;
-	@Autowired
-	private ZulistMapper zulistMapper;
-	
-	@Override
-	public List<Paid> selectall(QueryVo vo) {
-		List<Paid> list=paidMapper.selectall(vo);
-		return list;
-	}
+    @Autowired
+    private PaidMapper paidMapper;
+    @Autowired
+    private ZulistMapper zulistMapper;
 
-	@Override
-	public Double selectsum(QueryVo vo) {
-		Double sum=paidMapper.selectsum(vo);
-		return sum;
-	}
+    @Override
+    public List<Paid> selectAll(QueryVo vo) {
+        List<Paid> list = paidMapper.selectall(vo);
+        return list;
+    }
 
-	@Override
-	public void deletepaid(Integer id) {
-		paidMapper.deletepaid(id);
-		
-	}
+    @Override
+    public Double selectSum(QueryVo vo) {
+        Double sum = paidMapper.selectsum(vo);
+        return sum;
+    }
 
-	@Override
-	public List<Zulist> findzuuserlist() throws Exception{
-		List<Zulist> list=zulistMapper.findzuuserlist();
-		return list;
-	}
+    @Override
+    public void deletePaid(Integer id) {
+        paidMapper.deletepaid(id);
 
-	@Override
-	public Zulist findzukezulist(Integer id) {
-		Zulist zulist=zulistMapper.findzukezulist(id);
-		return zulist;
-	}
+    }
 
-	
+    @Override
+    public List<ZuList> findZuUserList() throws Exception {
+        List<ZuList> list = zulistMapper.findzuuserlist();
+        return list;
+    }
+
+    @Override
+    public ZuList findzukeZuList(Integer id) {
+        ZuList zulist = zulistMapper.findzukezulist(id);
+        return zulist;
+    }
+
+
 }
