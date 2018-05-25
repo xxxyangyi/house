@@ -28,28 +28,28 @@
 			u.*
 		FROM
 			zuList z
-		JOIN `userList` u ON u.id = z.userListId and u.id=#{userListId}
+		JOIN `userlist` u ON u.id = z.userlist_id and u.id=#{userListId}
 	</select>
     <select id="findZukeZuList" parameterType="Integer" resultMap="userListZuResultMap">
 		SELECT
 			z.*,
 			u.*
 		FROM
-			zuList z
-		JOIN `userList` u ON u.id = z.userlist_id and z.zid=#{id}
+			zulist z
+		JOIN `userlist` u ON u.id = z.userlist_id and z.zid=#{id}
 	</select>
     <select id="findZuUserList" resultMap="userListZuResultMap">
 		SELECT
 			z.*,
 			u.*
 		FROM
-			zuList z
+			zulist z
 		JOIN `userlist` u ON u.id = z.userlist_id
 	</select>
     <select id="findZuList" resultType="Pojo.ZuList" parameterType="String">
 		SELECT * FROM zulist WHERE house_id =#{houseId}
 	</select>
     <delete id="deleteZuList" parameterType="String">
-		delete from zuList where house_id=#{houseId}
+		delete from zulist where house_id=#{houseId}
 	</delete>
 </mapper>

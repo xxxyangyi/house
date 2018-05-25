@@ -29,7 +29,7 @@
         <h1>我的租赁</h1>
     </div>
     <form id="houseForm" name="houseForm"
-          action="<%=basePath %>/zuList/myzulist.action" method=post>
+          action="<%=basePath %>/zulist/myzulist.action" method=post>
         <div class="result-title">
             <div class="result-list"></div>
         </div>

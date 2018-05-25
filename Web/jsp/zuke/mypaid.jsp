@@ -52,7 +52,7 @@
                                    id="fromDate"
                                    type="text"
                                    readonly></td>
-                        <th width="70"> 终止日期 :< /th>
+                        <th width="70"> 终止日期 :</th>
                         <td><input class="common-text"
                                    placeholder="请选择应缴日期"
                                    name="toDate"
@@ -138,6 +138,5 @@
         document.myform.submit();
     }
 </script>
-<
-/body>
+</body>
 </html>

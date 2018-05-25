@@ -10,29 +10,29 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ContractServiceImpl implements ContractService {
     @Autowired
-    private ContractMapper hetongMapper;
+    private ContractMapper contractMapper;
 
     @Override
     public void insertContract(Contract contract) {
-        hetongMapper.insertContract(contract);
+        contractMapper.insertContract(contract);
 
     }
 
     @Override
     public Contract findContract(String houseId) {
-        Contract contract = hetongMapper.findContract(houseId);
+        Contract contract = contractMapper.findContract(houseId);
         return contract;
     }
 
     @Override
     public void updateContract(Contract contract) {
-        hetongMapper.updateContract(contract);
+        contractMapper.updateContract(contract);
     }
 
     @Override
     public void deleteContract(String house_id) {
         // TODO Auto-generated method stub
-        hetongMapper.deleteContract(house_id);
+        contractMapper.deleteContract(house_id);
 
     }
 

@@ -19,7 +19,7 @@
         </association>
     </resultMap>
     <insert id="insertApply" parameterType="Pojo.Apply">
-	  insert into apply(houseId,address,price,area,status,userListId)
+	  insert into apply(houseId,address,price,area,status,userlist_id)
 	  values(#{houseId},#{address},#{price},#{area},#{status},#{userListId})
 	</insert>
 

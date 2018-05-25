@@ -29,9 +29,9 @@
             <id property="zid" column="zid"/>
             <!--用户id已经在user对象中存在，此处可以不设置-->
             <!-- <result property="userId" column="id"/> -->
-            <result property="houseId" column="houseId"/>
+            <result property="houseId" column="house_id"/>
             <result property="address" column="address"/>
-            <result property="contractId" column="contractId"/>
+            <result property="contractId" column="contract_id"/>
             <result property="price" column="price"/>
             <result property="status" column="status"/>
         </collection>
@@ -40,7 +40,7 @@
     <resultMap id="checkoutResultMap" type="Pojo.UserList">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
+        <result column="idcard" property="idCard" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
         <result column="user_id" property="userId" jdbcType="INTEGER"/>
         <collection property="checkout" ofType="Pojo.Checkout">
@@ -74,9 +74,9 @@
     <resultMap id="userMap" type="Pojo.UserList">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
+        <result column="idcard" property="idCard" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
-        <result column="userId" property="userId" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
         <association property="user" javaType="Pojo.User">
             <!-- column:user表的主键对应的列  property：user对象中id属性-->
             <id column="id" property="id"/>
@@ -121,7 +121,7 @@
 		SELECT u.*, z.* FROM `userlist` u, zulist z where u.id = z.userlist_id and u.id=#{id}
 	</select>
     <select id="getMyCheckout" resultMap="checkoutResultMap" parameterType="Integer">
-		SELECT u.*, c.* FROM `userlist` u, checkout c where u.id = c.userListId and u.id=#{id}
+		SELECT u.*, c.* FROM `userlist` u, checkout c where u.id = c.userlist_id and u.id=#{id}
 	</select>
     <select id="getMyApply" resultMap="applyResultMap" parameterType="Integer">
 		SELECT	u.*, a.* FROM `userlist` u, apply a where u.id = a.userlist_id and u.id=#{id}

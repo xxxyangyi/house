@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Paid {
     private Integer id;
-    private String house_id;
+    private String houseId;
     private String address;
     private Date date;
     private Double price;
@@ -12,14 +12,6 @@ public class Paid {
     private String name;
     private Integer userListId;
     private String status;
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
 
     public Integer getId() {
         return id;
@@ -29,12 +21,12 @@ public class Paid {
         this.id = id;
     }
 
-    public String getHouse_id() {
-        return house_id;
+    public String getHouseId() {
+        return houseId;
     }
 
-    public void setHouse_id(String house_id) {
-        this.house_id = house_id;
+    public void setHouseId(String houseId) {
+        this.houseId = houseId;
     }
 
     public String getAddress() {
@@ -51,6 +43,14 @@ public class Paid {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public String getPayDate() {
@@ -84,5 +84,4 @@ public class Paid {
     public void setStatus(String status) {
         this.status = status;
     }
-
 }

@@ -154,7 +154,7 @@ public class PaidController {
         String payDate = matter1.format(dt);
         ToPaid topaid = topaidService.findById(id);
         Paid paid = new Paid();
-        paid.setHouse_id(topaid.getHouseId());
+        paid.setHouseId(topaid.getHouseId());
         paid.setAddress(topaid.getAddress());
         paid.setPrice(topaid.getPrice());
         paid.setDate(topaid.getDate());

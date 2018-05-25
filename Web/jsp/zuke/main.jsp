@@ -75,7 +75,7 @@
                     <a class="a"><i class="icon-font">&#xe018;</i>租赁信息</a>
                     <div class="p">
                         <ul class="sub-menu">
-                            <li><a href="/zuList/myzulist.action"><i class="icon-font">&#xe017;</i>我的租赁</a></li>
+                            <li><a href="/zulist/myzulist.action"><i class="icon-font">&#xe017;</i>我的租赁</a></li>
                             <li><a href="/checkout/getmycheckout.action"><i class="icon-font">&#xe037;</i>已退租列表</a></li>
 
                         </ul>
@@ -86,7 +86,7 @@
                     <div class="p">
                         <ul class="sub-menu">
                             <li><a href="/getmyapply.action"><i class="icon-font">&#xe017;</i>看房申请列表</a></li>
-                            <li><a href="/applyOut/getmyapplyout.action"><i class="icon-font">&#xe037;</i>退租申请列表</a>
+                            <li><a href="/applyout/getmyapplyout.action"><i class="icon-font">&#xe037;</i>退租申请列表</a>
                             </li>
 
                         </ul>

@@ -24,7 +24,7 @@
                 and date &lt;= #{toDate}
             </if>
             <if test="userListId!=null and userListId!=''">
-                and userListId=#{userListId}
+                and userlist_id=#{userListId}
             </if>
         </where>
     </select>
@@ -42,10 +42,10 @@
                 and date &lt;= #{toDate}
             </if>
             <if test="userListId!=null and userListId!=''">
-                and userListId=#{userListId}
+                and userlist_id=#{userListId}
             </if>
             <if test="userListId!=null and userListId!=''">
-                and userListId=#{userListId}
+                and userlist_id=#{userListId}
             </if>
         </where>
     </select>
