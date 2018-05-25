@@ -18,21 +18,15 @@
     <script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <style>
-
-
         .error {
-
             font-size: 13px;
             color: red;
-
         }
-
     </style>
     <script type="text/javascript">
         $().ready(function () {
             // 在键盘按下并释放及提交后验证提交表单
             $("#myform").validate({
-
                 rules: {
                     houseId: {
                         required: true,
@@ -40,19 +34,15 @@
 
                     address: {
                         required: true,
-
                     },
                     area: {
                         required: true,
                         min: 0
-
                     },
                     price: {
                         required: true,
                         min: 0
-
                     }
-
                 },
                 messages: {
                     houseId: {
@@ -71,14 +61,11 @@
                     price: {
                         required: "价格不能为空！",
                         min: "请输入正确的租金"
-
                     }
-
                 }
             });
         })
     </script>
-
 </head>
 <body>
 
@@ -87,7 +74,8 @@
 </div>
 <div class="result-content">
     <div class="sidebar-title">
-        <form action="<%=basePath %>addhouse.action" method="post" id="myform" name="myform" enctype="multipart/form-data">
+        <form action="<%=basePath%>addhouse.action" method="post" id="myform" name="myform"
+              enctype="multipart/form-data">
             <table class="insert-tab" width="100%">
                 <tbody>
                 <th><i class="require-red">*</i>房屋id：</th>

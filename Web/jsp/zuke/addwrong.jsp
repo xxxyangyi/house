@@ -20,30 +20,22 @@
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
     <style>
-
-
         .error {
-
             font-size: 13px;
             color: red;
-
         }
-
     </style>
     <script type="text/javascript">
         $().ready(function () {
             // 在键盘按下并释放及提交后验证提交表单
-
             $("#date").datepicker();
             $("#myform").validate({
-
                 rules: {
                     date: {
                         required: true,
                     },
                     detail: {
                         required: true,
-
                     }
                 },
                 messages: {
@@ -52,15 +44,11 @@
                     },
                     detail: {
                         required: "报障内容不能为空",
-
                     }
                 }
             });
         })
-
-
     </script>
-
 </head>
 <body>
 
@@ -69,7 +57,7 @@
 </div>
 <div class="result-content">
     <div class="sidebar-title">
-        <form action="<%=basePath %>/wrong/insertwrong.action" method="post" id="myform" name="myform" enctype="multipart/form-data">
+        <form action="<%=basePath%>/wrong/insertwrong.action" method="post" id="myform" name="myform" enctype="multipart/form-data">
             <table class="insert-tab" width="100%">
                 <tbody>
                 <th><i class="require-red">*</i>房屋id：</th>

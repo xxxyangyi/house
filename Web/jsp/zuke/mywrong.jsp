@@ -3,8 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,21 +14,12 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/js/libs/modernizr.min.js"></script>
-    </script>
-    <
-    style
-    type = "text/css" >
-
-
-        < /style>
-        < script
-    type = "text/javascript" >
-    var error = "${param.error}";
-    if (error == "insertToPaid") {
-
-        alert("租金信息添加成功！");
-    }
-
+    <style type="text/css"></style>
+    <script type="text/javascript">
+        var error = "${param.error}";
+        if (error == "insertToPaid") {
+            alert("租金信息添加成功！");
+        }
     </script>
 </head>
 <body>
@@ -38,12 +28,10 @@
         <h1>待处理报障</h1>
     </div>
     <form id="houseForm" name="houseForm"
-          action="<%=basePath %>/wrong/mywronglist.action"
+          action="<%=basePath%>/wrong/mywronglist.action"
           method=post>
         <div class="result-title">
             <div class="result-list">
-
-
             </div>
         </div>
 
@@ -51,66 +39,40 @@
             <table id=grid
                    class="result-tab" width="100%">
                 <tbody>
-                <tr
-                        style="FONT-WEIGHT: bold; FONT-STYLE: normal; BACKGROUND-COLOR: #eeeeee; TEXT-DECORATION: none">
+                <tr style="FONT-WEIGHT: bold; FONT-STYLE: normal; BACKGROUND-COLOR: #eeeeee; TEXT-DECORATION: none">
                     <td>房屋id</td>
                     <td>地址</td>
                     <td>报障日期</td>
                     <td>租赁人</td>
                     <td>报障内容</td>
                     <td>状态</td>
-
-
                 </tr>
                 <c:forEach items="${wrong}" var="wrong">
-
-                <tr
-                        style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
-                    <td>${wrong.houseId }</td>
-
-                    <td>${wrong.address}</td>
-
-
-                    <td>${wrong.date}</td>
-                    <td>${wrong.name}</td>
-                    <td>${wrong.detail}</td>
-                    <td>${wrong.status}</td>
-
-                    </c:forEach>
-
+                    <tr style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
+                        <td>${wrong.houseId }</td>
+                        <td>${wrong.address}</td>
+                        <td>${wrong.date}</td>
+                        <td>${wrong.name}</td>
+                        <td>${wrong.detail}</td>
+                        <td>${wrong.status}</td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>
 
-
-        <tr>
-        <tr>
-							<span id=pagelink>
-								<div style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right; margin-top:10px">
-									共[<B>${p.total}</B>]条记录，共[<B>${p.pages}</B>]页
-									,
-
-									<c:if test="${ p.pageNum > 1 }">
-                                        [<A href="javascript:to_page(${p.prePage})">前一页</A>]
-                                    </c:if>
-										<input type="hidden" name="page" id="page" value=""/>
-									第<B>${p.pageNum}</B>页
-
-									<c:if test="${ p.pageNum < p.pages }">
-                                        [<A href="javascript:to_page(${p.nextPage})">后一页</A>]
-                                    </c:if>
-
-									
-								</div>
-							</span>
-
-        </tr>
-        </tbody>
-
-
-        </tbody>
-
-
+        <span id="pagelink">
+            <div style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right; margin-top:10px">共[<B>${p.total}</B>]条记录，共[<B>${p.pages}</B>]页,
+                <c:if test="${ p.pageNum > 1 }">
+                    [<a href="javascript:to_page(${p.prePage})">前一页</a>]
+                </c:if>
+                <input type="hidden" name="page" id="page" value=""/>
+                第<b>${p.pageNum}</b>页
+                <c:if test="${ p.pageNum < p.pages }">
+                    [<a href="javascript:to_page(${p.nextPage})">后一页</a>]
+                </c:if>
+            </div>
+        </span>
     </form>
 </div>
 <script language=javascript>

@@ -3,34 +3,30 @@
 <mapper namespace="dao.CheckoutMapper">
     <resultMap id="checkoutResultMap" type="Pojo.Checkout">
         <id column="cid" property="id" jdbcType="INTEGER"/>
-        <result column="houseId" property="houseId" jdbcType="VARCHAR"/>
+        <result column="house_id" property="houseId" jdbcType="VARCHAR"/>
         <result column="address" property="address" jdbcType="VARCHAR"/>
         <result column="status" property="status" jdbcType="VARCHAR"/>
-        <result column="userListId" property="userListId" jdbcType="INTEGER"/>
+        <result column="userlist_id" property="userListId" jdbcType="INTEGER"/>
         <collection property="userList" ofType="Pojo.UserList">
             <id property="id" column="id"/>
             <!--用户id已经在user对象中存在，此处可以不设置-->
             <!-- <result property="userId" column="id"/> -->
             <result property="name" column="name"/>
-            <result property="idCard" column="idCard"/>
+            <result property="idCard" column="idcard"/>
             <result property="phone" column="phone"/>
-            <result property="userId" column="userId"/>
+            <result property="userId" column="user_id"/>
 
         </collection>
 
     </resultMap>
-    <insert id="insertcheckout" parameterType="Pojo.Checkout">
-	  insert into checkout(houseId,address,userListId,status)
+    <insert id="insertCheckout" parameterType="Pojo.Checkout">
+	  insert into checkout (house_id,address,userlist_id,status)
 	  values(#{houseId},#{address},#{userListId},#{status})
 	</insert>
-    <select id="getallcheckout" resultMap="checkoutResultMap">
-		SELECT
-	c.*, u.*
-FROM
-	`checkout` c
-LEFT JOIN userList u ON u.id = c.userListId
+    <select id="getAllCheckout" resultMap="checkoutResultMap">
+		SELECT c.*, u.* FROM `checkout` c LEFT JOIN userList u ON u.id = c.userlist_id
 	</select>
-    <delete id="deletecheckout" parameterType="Integer">
+    <delete id="deleteCheckout" parameterType="Integer">
 		delete from checkout where cid=#{cid}
 	</delete>
 </mapper>

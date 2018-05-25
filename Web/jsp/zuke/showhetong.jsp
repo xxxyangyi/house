@@ -61,7 +61,6 @@
         _________年____月____日　　　　　　　　_________年____月____日　　<br/>　　
         签订地点：_________　　　　　　　　　　签订地点：_________
         <div class="button">
-
             <input class="btn btn6" onclick="javascript:to_dayin()" value="打印合同" type="button">
             <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
         </div>

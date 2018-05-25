@@ -17,27 +17,18 @@
     <script type="text/javascript" src="/js/jquery-ui-datepicker.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
-    </script>
-    <
-    style
-    type = "text/css" >
-    .sum
-    {
-        float:right;
-    }
-
-    <
-    /style>
-    < script
-    type = "text/javascript" >
+    <style type="text/css">
+        .sum {
+            float: right;
+        }
+    </style>
+    <script type="text/javascript">
         $().ready(function () {
             // 在键盘按下并释放及提交后验证提交表单
             $("#fromDate").datepicker();
             $("#toDate").datepicker();
         });
-
     </script>
-
 </head>
 <body>
 <div>
@@ -46,7 +37,7 @@
     </div>
     <div class="search-wrap">
         <div class="search-content">
-            <form action="<%=basePath %>/wrong/selectall.action" method="post" name="myform">
+            <form action="<%=basePath%>/wrong/selectall.action" method="post" name="myform">
                 <table class="search-tab">
                     <tr>
                         <th width="120">租客姓名：</th>
@@ -61,26 +52,20 @@
                         <input type="hidden" id="page" name="page" value="">
 
                         <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
-
                     </tr>
                 </table>
             </form>
         </div>
     </div>
-
     <div class="result-title">
         <div class="result-list">
-
-
         </div>
     </div>
-
     <div class="result-content">
         <table id=grid
                class="result-tab" width="100%">
             <tbody>
-            <tr
-                    style="FONT-WEIGHT: bold; FONT-STYLE: normal; BACKGROUND-COLOR: #eeeeee; TEXT-DECORATION: none">
+            <tr style="FONT-WEIGHT: bold; FONT-STYLE: normal; BACKGROUND-COLOR: #eeeeee; TEXT-DECORATION: none">
                 <td>房屋id</td>
                 <td>地址</td>
                 <td>报障日期</td>
@@ -88,72 +73,40 @@
                 <td>报障内容</td>
                 <td>状态</td>
                 <td>操作</td>
-
-
             </tr>
             <c:forEach items="${solve}" var="solve">
-                <tr
-                        style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
+                <tr style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
                     <td>${solve.houseId }</td>
-
                     <td>${solve.address}</td>
-
-
                     <td>${solve.date}</td>
                     <td>${solve.name}</td>
                     <td>${solve.detail}</td>
                     <td>${solve.status}</td>
-                    <td>
-
-                        <a class="link-update"
-                           href="/wrong/deletesolve.action?id=${solve.id}"
+                    <td><a class="link-update" href="/wrong/deletesolve.action?id=${solve.id}"
                            onclick="return window.confirm('确定删除吗？')">删除</a>
                         &nbsp;&nbsp;
-
-
                     </td>
-
-
                 </tr>
-
             </c:forEach>
-
             </tbody>
         </table>
     </div>
 
 
-    <tr>
-    <tr>
-        <div style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right; margin-top:10px">
-            以上报障：<B style="color:red">${count} </B>条
-        </div>
-        <div style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right; margin-top:10px">
-
-            共[<B>${p.total}</B>]条记录，共[<B>${p.pages}</B>]页
-            ,
-
-            <c:if test="${ p.pageNum > 1 }">
-                [<A href="javascript:to_page(${p.prePage})">前一页</A>]
-            </c:if>
-            <input type="hidden" name="page" id="page" value=""/>
-            第<B>${p.pageNum}</B>页
-
-            <c:if test="${ p.pageNum < p.pages }">
-                [<A href="javascript:to_page(${p.nextPage})">后一页</A>]
-            </c:if>
-
-
-        </div>
-        </span>
-
-    </tr>
-    </tbody>
-
-
-    </tbody>
-
-
+    <div style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right; margin-top:10px">
+        以上报障：<B style="color:red">${count} </B>条
+    </div>
+    <div style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right; margin-top:10px">
+        共[<b>${p.total}</b>]条记录，共[<b>${p.pages}</b>]页,
+        <c:if test="${ p.pageNum > 1 }">
+            [<a href="javascript:to_page(${p.prePage})">前一页</a>]
+        </c:if>
+        <input type="hidden" name="page" id="page" value=""/>
+        第<b>${p.pageNum}</b>页
+        <c:if test="${ p.pageNum <p.pages }">
+            [<A href="javascript:to_page(${p.nextPage})">后一页</A>]
+        </c:if>
+    </div>
 </div>
 <script language=javascript>
     // 提交分页的查询的表单

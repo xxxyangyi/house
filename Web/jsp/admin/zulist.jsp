@@ -28,12 +28,11 @@
     <div class="result-title">
         <h1> 在租列表 </h1>
     </div>
-    <form id="houseForm" name="houseForm" action="<%=basePath %>/zulist/findzulist.action" method="post">
+    <form id="houseForm" name="houseForm" action="<%=basePath%>/zulist/findzulist.action" method="post">
         <div class="result-title">
             <div class="result-list">
             </div>
         </div>
-
         <div class="result-content">
             <table id=grid class="result-tab" width="100%">
                 <tbody>
@@ -45,7 +44,6 @@
                     <td> 租赁人身份证号</td>
                     <td> 租赁人联系电话</td>
                     <td> 操作</td>
-
                 </tr>
                 <c:forEach items="${zuList}" var="zuList">
 
@@ -71,26 +69,15 @@
         </div>
 
 
-        <tr>
-        <tr><span id=pagelink>
-        <dev style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right; margin-top:10px">
-        共[ < B > ${p.total} < /B>]条记录，共[<B>${p.pages}</B>]页,
-        <c:if test="${ p.pageNum > 1 }">
-    [ <a href="javascript:to_page(${p.prePage})"> 前一页 </a>]
-        </c:if>
-        <input type="hidden" name="page" id="page" value="">第 <b> ${p.pageNum} < /b>页
+        <span id="pagelink">
+            <dev style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right; margin-top:10px">共[ < B > ${p.total} < /B>]条记录，共[<B>${p.pages}</B>]页,
+                <c:if test="${ p.pageNum > 1 }">[ <a href="javascript:to_page(${p.prePage})"> 前一页 </a>]</c:if>
+                <input type="hidden" name="page" id="page" value="">第 <b> ${p.pageNum} </b>页
             <c:if test="${ p.pageNum < p.pages }">[ <a href="javascript:to_page(${p.nextPage})"> 后一页 </a>]
-        </c:if>
-
-</div>
-</span>
-
-</tr>
-</tbody>
-</tbody>
-
-
-</form>
+            </c:if>
+            </dev>
+        </span>
+    </form>
 </div>
 <script language=javascript>
     // 提交分页的查询的表单

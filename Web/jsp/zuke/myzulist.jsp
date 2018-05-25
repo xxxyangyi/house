@@ -15,18 +15,12 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/js/libs/modernizr.min.js"></script>
-    </script>
-    <
-    style
-    type = "text/css" >
-        < /style>
-        < script
-    type = "text/javascript" >
-    var error = "${param.error}";
-    if (error == "applysuccess") {
-
-        alert("申请已提交，请耐心等待管理员的处理。如需查看进度，可前往“我的退租申请”中查看");
-    }
+    <style type="text/css"></style>
+    <script type="text/javascript">
+        var error = "${param.error}";
+        if (error == "applysuccess") {
+            alert("申请已提交，请耐心等待管理员的处理。如需查看进度，可前往“我的退租申请”中查看");
+        }
     </script>
 </head>
 <body>
@@ -86,34 +80,17 @@
             </table>
         </div>
 
-
-        <tr>
-        <tr>
-				<span id=pagelink>
-					<div
-                            style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right; margin-top: 10px">
-						共[<B>${p.total}</B>]条记录，共[<B>${p.pages}</B>]页 ,
-
-						<c:if test="${ p.pageNum > 1 }">
-                            [<A href="javascript:to_page(${p.prePage})">前一页</A>]
-                        </c:if>
-						<input type="hidden" name="page" id="page" value=""/> 第<B>${p.pageNum}</B>页
-
-						<c:if test="${ p.pageNum < p.pages }">
-                            [<A href="javascript:to_page(${p.nextPage})">后一页</A>]
-                        </c:if>
-
-
-					</div>
-				</span>
-
-        </tr>
-        </tbody>
-
-
-        </tbody>
-
-
+        <span id="pagelink">
+            <div style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right; margin-top: 10px">共[<B>${p.total}</B>]条记录，共[<b>${p.pages}</b>]页 ,
+                <c:if test="${ p.pageNum > 1 }">
+                    [<a href="javascript:to_page(${p.prePage})">前一页</a>]
+                </c:if>
+                <input type="hidden" name="page" id="page" value=""/> 第<b>${p.pageNum}</b>页
+                <c:if test="${ p.pageNum < p.pages }">
+                    [<a href="javascript:to_page(${p.nextPage})">后一页</a>]
+                </c:if>
+            </div>
+        </span>
     </form>
 </div>
 <script language=javascript>

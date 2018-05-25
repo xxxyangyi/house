@@ -3,8 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,18 +14,11 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/js/libs/modernizr.min.js"></script>
-    </script>
-    <
-    style
-    type = "text/css" >
-        < /style>
-        < script
-    type = "text/javascript" >
-    var error = "${param.error}";
-    if (error == "applysuccess") {
-
-        alert("申请已提交，请耐心等待管理员的处理。如需查看进度，可前往“我的退租申请”中查看");
-    }
+    <script type="text/javascript">
+        var error = "${param.error}";
+        if (error == "applysuccess") {
+            alert("申请已提交，请耐心等待管理员的处理。如需查看进度，可前往“我的退租申请”中查看");
+        }
     </script>
 </head>
 <body>
@@ -43,34 +35,23 @@
         <div class="result-content">
             <table id=grid class="result-tab" width="100%">
                 <tbody>
-                <tr
-                        style="FONT-WEIGHT: bold; FONT-STYLE: normal; BACKGROUND-COLOR: #eeeeee; TEXT-DECORATION: none">
-
+                <tr style="FONT-WEIGHT: bold; FONT-STYLE: normal; BACKGROUND-COLOR: #eeeeee; TEXT-DECORATION: none">
                     <td>申请人</td>
                     <td>申请人身份证号</td>
                     <td>申请人联系电话</td>
                     <td>房屋id</td>
                     <td>地址</td>
-
                     <td>状态</td>
                     <td>操作</td>
-
                 </tr>
                 <c:forEach items="${userList}" varStatus="i" var="userList">
-
-                    <tr
-                    style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
+                    <tr style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
                     <c:forEach items="${userList.applyOut}" var="applyOut">
                         <td>${userList.name }</td>
-
                         <td>${userList.idCard}</td>
-
                         <td>${userList.phone}</td>
-
                         <td>${applyOut.houseId}</td>
                         <td>${applyOut.address}</td>
-
-
                         <td>${applyOut.status}</td>
                         <td>
                             <c:if test="${ applyOut.status!='申请中'}">
@@ -83,42 +64,23 @@
                         </td>
                         </tr>
                     </c:forEach>
-
-
                 </c:forEach>
-
                 </tbody>
             </table>
         </div>
 
 
-        <tr>
-        <tr>
-				<span id=pagelink>
-					<div
-                            style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right; margin-top: 10px">
-						共[<B>${p.total}</B>]条记录，共[<B>${p.pages}</B>]页 ,
-
-						<c:if test="${ p.pageNum > 1 }">
-                            [<A href="javascript:to_page(${p.prePage})">前一页</A>]
-                        </c:if>
-						<input type="hidden" name="page" id="page" value=""/> 第<B>${p.pageNum}</B>页
-
-						<c:if test="${ p.pageNum < p.pages }">
-                            [<A href="javascript:to_page(${p.nextPage})">后一页</A>]
-                        </c:if>
-
-
-					</div>
-				</span>
-
-        </tr>
-        </tbody>
-
-
-        </tbody>
-
-
+        <span id="pagelink">
+            <div style="LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: right; margin-top: 10px">共[<b>${p.total}</b>]条记录，共[<b>${p.pages}</b>]页 ,
+                <c:if test="${ p.pageNum > 1 }">
+                    [<a href="javascript:to_page(${p.prePage})">前一页</a>]
+                </c:if>
+                <input type="hidden" name="page" id="page" value=""/> 第<b>${p.pageNum}</b>页
+                <c:if test="${ p.pageNum < p.pages }">
+                    [<a href="javascript:to_page(${p.nextPage})">后一页</a>]
+                </c:if>
+            </div>
+        </span>
     </form>
 </div>
 <script language=javascript>

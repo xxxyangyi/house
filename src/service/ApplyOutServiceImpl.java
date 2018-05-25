@@ -3,7 +3,7 @@ package service;
 import Pojo.ApplyOut;
 import Pojo.Checkout;
 import Pojo.ZuList;
-import dao.ApplyoutMapper;
+import dao.ApplyOutMapper;
 import dao.CheckoutMapper;
 import dao.ContractMapper;
 import dao.HouseListMapper;
@@ -19,11 +19,11 @@ import java.util.List;
 public class ApplyOutServiceImpl implements ApplyOutService {
 
     @Autowired
-    private ApplyoutMapper applyoutMapper;
+    private ApplyOutMapper applyOutMapper;
     @Autowired
-    private HouseListMapper houselistMapper;
+    private HouseListMapper houseListMapper;
     @Autowired
-    private ContractMapper hetongMapper;
+    private ContractMapper contractMapper;
     @Autowired
     private CheckoutMapper checkoutMapper;
     @Autowired
@@ -36,42 +36,40 @@ public class ApplyOutServiceImpl implements ApplyOutService {
         applyout.setAddress(zulist.getAddress());
         applyout.setStatus("申请中");
         applyout.setUserListId(zulist.getUserListId());
-        applyoutMapper.insertapplyout(applyout);
+        applyOutMapper.insertApplyOut(applyout);
 
     }
 
     @Override
     public List<ApplyOut> findAllApplyOut() {
-        List<ApplyOut> list = applyoutMapper.findallapplyout();
+        List<ApplyOut> list = applyOutMapper.findAllApplyOut();
         return list;
     }
 
     @Override
     public void updateApplyOut(ApplyOut applyout) {
-
-        applyoutMapper.updateapplyout(applyout);
+        applyOutMapper.updateApplyOut(applyout);
     }
 
     @Override
     public void agreeApplyOut(Integer id) {
-        ApplyOut applyout = applyoutMapper.findbyid(id);
-        houselistMapper.deleteHouseByHouseId(applyout.getHouseId());
-        hetongMapper.deleteContract(applyout.getHouseId());
+        ApplyOut applyout = applyOutMapper.findById(id);
+        houseListMapper.deleteHouseByHouseId(applyout.getHouseId());
+        contractMapper.deleteContract(applyout.getHouseId());
         Checkout checkout = new Checkout();
-        checkout.setHouse_id(applyout.getHouseId());
+        checkout.setHouseId(applyout.getHouseId());
         checkout.setAddress(applyout.getAddress());
         checkout.setStatus("已退租");
-        checkout.setUserlist_id(applyout.getUserListId());
-        checkoutMapper.insertcheckout(checkout);
+        checkout.setUserListId(applyout.getUserListId());
+        checkoutMapper.insertCheckout(checkout);
         applyout.setStatus("已同意");
-        applyoutMapper.updateapplyoutbyhouse(applyout);
+        applyOutMapper.updateApplyOut(applyout);
         zulistMapper.deleteZuList(applyout.getHouseId());
     }
 
     @Override
     public void deleteApplyOut(Integer id) {
-
-        applyoutMapper.deleteapplyout(id);
+        applyOutMapper.deleteApplyOut(id);
     }
 
 

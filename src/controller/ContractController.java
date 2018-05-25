@@ -83,10 +83,10 @@ public class ContractController {
         contractService.deleteContract(house_id);
         ZuList zulist = zuListService.findZuList(house_id);
         Checkout checkout = new Checkout();
-        checkout.setHouse_id(house_id);
+        checkout.setHouseId(house_id);
         checkout.setAddress(zulist.getAddress());
         checkout.setStatus("已退租");
-        checkout.setUserlist_id(zulist.getUserListId());
+        checkout.setUserListId(zulist.getUserListId());
         checkoutService.insertCheckOut(checkout);
         houseListService.deleteHouseByHouseId(house_id);
         zuListService.deleteZuList(house_id);

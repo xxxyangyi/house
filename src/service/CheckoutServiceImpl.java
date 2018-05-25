@@ -17,20 +17,20 @@ public class CheckoutServiceImpl implements CheckoutService {
 
     @Override
     public void insertCheckOut(Checkout checkout) {
-        checkoutMapper.insertcheckout(checkout);
+        checkoutMapper.insertCheckout(checkout);
 
     }
 
     @Override
     public List<Checkout> getAllCheckOut() {
-        List<Checkout> checkout = checkoutMapper.getallcheckout();
+        List<Checkout> checkout = checkoutMapper.getAllCheckout();
         return checkout;
     }
 
     @Override
     public void deleteCheckOut(Integer id) {
 
-        checkoutMapper.deletecheckout(id);
+        checkoutMapper.deleteCheckout(id);
     }
 
 

@@ -5,9 +5,9 @@ import Pojo.Checkout;
 import java.util.List;
 
 public interface CheckoutMapper {
-    public void insertcheckout(Checkout checkout);
+    void insertCheckout(Checkout checkout);
 
-    public List<Checkout> getallcheckout();
+    List<Checkout> getAllCheckout();
 
-    public void deletecheckout(Integer id);
+    void deleteCheckout(Integer id);
 }

@@ -18,60 +18,45 @@
     <script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <style>
-
-
         .error {
-
             font-size: 13px;
             color: red;
-
         }
-
     </style>
     <script type="text/javascript">
         $().ready(function () {
             // 在键盘按下并释放及提交后验证提交表单
             $("#myform").validate({
-
                 rules: {
                     houseId: {
                         required: true,
                     },
-
                     address: {
                         required: true,
-
                     },
                     area: {
                         required: true,
                         min: 0
-
                     },
                     price: {
                         required: true,
                         min: 0
-
                     }
-
                 },
                 messages: {
                     houseId: {
                         required: "房屋id不能为空！",
                     },
-
                     address: {
                         required: "地址不能为空！",
-
                     },
                     area: {
                         required: "面积不能为空！",
                         min: "请输入正确的面积"
-
                     },
                     price: {
                         required: "价格不能为空！",
                         min: "请输入正确的租金"
-
                     }
 
                 }
@@ -87,7 +72,7 @@
 </div>
 <div class="result-content">
     <div class="sidebar-title">
-        <form action="<%=basePath %>findhouseidupdate.action" method="post" id="myform" name="myform" enctype="multipart/form-data">
+        <form action="<%=basePath%>findhouseidupdate.action" method="post" id="myform" name="myform" enctype="multipart/form-data">
             <table class="insert-tab" width="100%">
                 <input type="hidden" name="id" value="${houselist.id}"/>
                 <tbody>
@@ -130,7 +115,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <font id="error" color="red">${error }</font>
+                    <font id="error" color="red">${error}</font>
                 </tr>
                 </tbody>
             </table>

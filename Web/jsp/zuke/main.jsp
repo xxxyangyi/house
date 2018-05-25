@@ -3,8 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,7 +15,6 @@
     <script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/js/libs/modernizr.min.js"></script>
     <style>
-
         a:hover {
             cursor: pointer;
         }
@@ -24,26 +22,21 @@
     <script language=javascript>
         // 提交分页的查询的表单
         function to_page(url1) {
-
-
             $.ajax({
                 url: url1,
                 type: "post",
                 async: false,
-
                 success: function (data) {
                     // 你的具体操作
                     // alert(data);
                     $("#inside").html(data);
                     alert("成功");
-
                 },
                 error: function () {
                     alert("失败，请稍后再试！");
                 }
             });
         }
-
     </script>
 </head>
 <body>
@@ -53,13 +46,11 @@
             <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
             <ul class="navbar-list clearfix">
                 <li><a class="on sendRequest" href="javascript::void(0)" onclick="to_page('toindex.action')">首页</a></li>
-
             </ul>
         </div>
         <div class="top-info-wrap">
             <ul class="top-info-list clearfix">
                 <li>欢迎您，${sessionScope.user.username}！</li>
-
                 <li><a href="javascript:if(confirm('确实要退出登录吗?'))location='/login.action'">退出</a></li>
             </ul>
         </div>
@@ -77,8 +68,6 @@
                     <div class="p">
                         <ul class="sub-menu">
                             <li><a href="/houselist.action"><i class="icon-font">&#xe008;</i>房源列表</a></li>
-
-
                         </ul>
                     </div>
                 </li>

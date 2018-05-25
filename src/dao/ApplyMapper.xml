@@ -1,41 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="dao.ApplyMapper">
-    <resultMap id="ApplyUserlistResultMap" type="Pojo.Apply">
+    <resultMap id="ApplyUserListResultMap" type="Pojo.Apply">
         <id column="apply_id" property="id" jdbcType="INTEGER"/>
-        <result column="houseId" property="houseId" jdbcType="VARCHAR"/>
+        <result column="house_id" property="houseId" jdbcType="VARCHAR"/>
         <result column="address" property="address" jdbcType="VARCHAR"/>
         <result column="area" property="area" jdbcType="DOUBLE"/>
         <result column="price" property="price" jdbcType="DOUBLE"/>
         <result column="status" property="status" jdbcType="VARCHAR"/>
-        <result column="userListId" property="userListId" jdbcType="INTEGER"/>
+        <result column="userlist_id" property="userListId" jdbcType="INTEGER"/>
         <association property="userList" javaType="Pojo.UserList">
-            <!-- column:userlist表的主键对应的列  property：userlist对象中id属性-->
+            <!-- column:userList表的主键对应的列  property：userList对象中id属性-->
             <id column="id" property="id"/>
             <result column="name" property="name" jdbcType="VARCHAR"/>
-            <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
+            <result column="idcard" property="idCard" jdbcType="VARCHAR"/>
             <result column="phone" property="phone" jdbcType="VARCHAR"/>
-            <result column="userId" property="userId" jdbcType="INTEGER"/>
+            <result column="user_id" property="userId" jdbcType="INTEGER"/>
         </association>
-
     </resultMap>
     <insert id="insertApply" parameterType="Pojo.Apply">
 	  insert into apply(houseId,address,price,area,status,userListId)
 	  values(#{houseId},#{address},#{price},#{area},#{status},#{userListId})
 	</insert>
 
-    <select id="findapplylist" resultMap="ApplyUserlistResultMap">
-		SELECT
-			a.*,
-			u.*
-		FROM
-			apply a
-		JOIN `userList` u ON u.id = a.userListId
+    <select id="findApplyList" resultMap="ApplyUserListResultMap">
+		SELECT a.*, u.* FROM apply a JOIN `userlist` u ON u.id = a.userlist_id
 	</select>
-    <select id="findbyhouse_id" parameterType="string" resultType="Pojo.Apply">
-		select * from apply where houseId=#{houseId}
+    <select id="findByHouseId" parameterType="string" resultType="Pojo.Apply">
+		select * from apply where house_id=#{houseId}
 	</select>
-    <delete id="deletebyhouse_id" parameterType="String">
-		delete from apply where houseId=#{houseId}
+    <delete id="deleteByHouseId" parameterType="String">
+		delete from apply where house_id=#{houseId}
 	</delete>
 </mapper>

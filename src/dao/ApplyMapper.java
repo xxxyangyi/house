@@ -13,6 +13,4 @@ public interface ApplyMapper {
     Apply findByHouseId(String house_id);
 
     void deleteByHouseId(String house_id);
-
-    void updateApplyOut(ApplyOut applyout);
 }

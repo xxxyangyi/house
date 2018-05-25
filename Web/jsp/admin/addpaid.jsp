@@ -20,13 +20,9 @@
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
     <style>
-
-
         .error {
-
             font-size: 13px;
             color: red;
-
         }
 
     </style>
@@ -36,7 +32,6 @@
 
             $("#date").datepicker();
             $("#myform").validate({
-
                 rules: {
                     date: {
                         required: true,
@@ -57,8 +52,6 @@
                 }
             });
         })
-
-
     </script>
 
 </head>
@@ -69,7 +62,7 @@
 </div>
 <div class="result-content">
     <div class="sidebar-title">
-        <form action="<%=basePath %>/paid/inserttopaid.action" method="post" id="myform" name="myform" enctype="multipart/form-data">
+        <form action="<%=basePath%>/paid/inserttopaid.action" method="post" id="myform" name="myform" enctype="multipart/form-data">
             <table class="insert-tab" width="100%">
                 <tbody>
                 <th><i class="require-red">*</i>房屋id：</th>

@@ -4,8 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -18,23 +17,16 @@
     <script type="text/javascript" src="/js/libs/modernizr.min.js"></script>
     <script type="text/javascript" src="/js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
-
     <style>
-
-
         .error {
-
             font-size: 13px;
             color: red;
-
         }
-
     </style>
     <script type="text/javascript">
         $().ready(function () {
             // 在键盘按下并释放及提交后验证提交表单
             $("#myform").validate({
-
                 rules: {
                     name: {
                         required: true,
@@ -42,15 +34,11 @@
 
                     idCard: {
                         required: true,
-
-
                     },
                     phone: {
                         required: true,
                         number: true
-
                     }
-
                 },
                 messages: {
                     name: {
@@ -59,14 +47,11 @@
 
                     idCard: {
                         required: "身份证号码不能为空！",
-
                     },
                     phone: {
                         required: "手机号码不能为空！",
                         number: "请输入正确的手机号码"
-
                     }
-
                 }
             });
         })
@@ -74,13 +59,13 @@
 
 </head>
 <body>
-
 <div class="result-title">
     <h1>完善个人资料</h1>
 </div>
 <div class="result-content">
     <div class="sidebar-title">
-        <form action="<%=basePath %>checkuserlist.action" method="post" id="myform" name="myform" enctype="multipart/form-data">
+        <form action="<%=basePath%>checkuserlist.action" method="post" id="myform" name="myform"
+              enctype="multipart/form-data">
             <table class="insert-tab" width="100%">
                 <tbody>
                 <input type="hidden" name="id" value="${userList.id}"/>

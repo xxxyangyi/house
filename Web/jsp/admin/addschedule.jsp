@@ -20,49 +20,35 @@
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
     <style>
-
-
         .error {
-
             font-size: 13px;
             color: red;
-
         }
-
     </style>
     <script type="text/javascript">
         $().ready(function () {
             // 在键盘按下并释放及提交后验证提交表单
             $("#date").datepicker();
-
             $("#myform").validate({
-
                 rules: {
                     date: {
                         required: true,
                     },
-
                     content: {
                         required: true,
-
                     }
                 },
                 messages: {
                     date: {
                         required: "日期不能为空",
                     },
-
                     content: {
                         required: "日程不能为空",
-
                     }
                 }
             });
         })
-
-
     </script>
-
 </head>
 <body>
 
@@ -71,7 +57,7 @@
 </div>
 <div class="result-content">
     <div class="sidebar-title">
-        <form action="<%=basePath %>/schedule/insertschedule.action" method="post" id="myform" name="myform"
+        <form action="<%=basePath%>/schedule/insertschedule.action" method="post" id="myform" name="myform"
               enctype="multipart/form-data">
             <table class="insert-tab" width="100%">
                 <tbody>
@@ -85,9 +71,7 @@
                     <th><i class="require-red">*</i>日程：</th>
                     <td><textarea class="common-text" name="content" id="content"
                                   style="width:430px;height:80px;">${schedule.content}</textarea></td>
-
                 </tr>
-
                 <tr>
                     <th></th>
                     <td>

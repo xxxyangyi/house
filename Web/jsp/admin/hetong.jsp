@@ -22,7 +22,6 @@
             text-align: center;
             font-size: 30px;
         }
-
         .button {
             margin: 10px auto;
             text-align: center;

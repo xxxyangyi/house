@@ -3,19 +3,11 @@ package Pojo;
 public class Checkout {
 
     private Integer id;
-    private String house_id;
+    private String houseId;
     private String address;
     private String status;
-    private Integer userlist_id;
+    private Integer userListId;
     private UserList userList;
-
-    public UserList getUserList() {
-        return userList;
-    }
-
-    public void setUserList(UserList userList) {
-        this.userList = userList;
-    }
 
     public Integer getId() {
         return id;
@@ -25,12 +17,12 @@ public class Checkout {
         this.id = id;
     }
 
-    public String getHouse_id() {
-        return house_id;
+    public String getHouseId() {
+        return houseId;
     }
 
-    public void setHouse_id(String house_id) {
-        this.house_id = house_id;
+    public void setHouseId(String houseId) {
+        this.houseId = houseId;
     }
 
     public String getAddress() {
@@ -49,12 +41,19 @@ public class Checkout {
         this.status = status;
     }
 
-    public Integer getUserlist_id() {
-        return userlist_id;
+    public Integer getUserListId() {
+        return userListId;
     }
 
-    public void setUserlist_id(Integer userlist_id) {
-        this.userlist_id = userlist_id;
+    public void setUserListId(Integer userListId) {
+        this.userListId = userListId;
     }
 
+    public UserList getUserList() {
+        return userList;
+    }
+
+    public void setUserList(UserList userList) {
+        this.userList = userList;
+    }
 }

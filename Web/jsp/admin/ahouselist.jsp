@@ -47,8 +47,7 @@
                         <td> ${houselist.status} </td>
                         <td><a class="link-update" href="findId.action?id=${houselist.id}"> 修改 </a> &nbsp; &nbsp;
                             <input type="hidden" name="id" value="${houselist.id}"/>
-                            <a class="link-del" href="deleteHouse.action?id=${houselist.id}"
-                               onclick="return window.confirm('确定删除吗？')"> 删除 </a>
+                            <a class="link-del" href="deleteHouse.action?id=${houselist.id}" onclick="return window.confirm('确定删除吗？')"> 删除 </a>
                         </td>
                     </tr>
                 </c:forEach>

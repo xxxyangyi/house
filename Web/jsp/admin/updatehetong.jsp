@@ -20,15 +20,10 @@
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
     <style>
-
-
         .error {
-
             font-size: 13px;
             color: red;
-
         }
-
     </style>
     <script type="text/javascript">
         $().ready(function () {
@@ -36,40 +31,28 @@
             $("#fromDate").datepicker();
             $("#toDate").datepicker();
             $("#myform").validate({
-
                 rules: {
                     houseId: {
                         required: true,
                     },
-
                     address: {
                         required: true,
-
                     },
                     chuzu: {
                         required: true,
-
-
                     },
                     price: {
                         required: true,
                         min: 1
-
                     },
                     chuzu_idcard: {
                         required: true,
-
-
                     },
                     zuke: {
                         required: true,
-
-
                     },
                     zuke_idcard: {
                         required: true,
-
-
                     },
                     fromDate: {
                         required: true,
@@ -82,21 +65,16 @@
                         min: 0,
                         max: 31,
                     }
-
                 },
                 messages: {
                     houseId: {
                         required: "房屋id不能为空",
                     },
-
                     address: {
                         required: "房屋地址不能为空",
-
                     },
                     chuzu: {
                         required: "出租方不能为空",
-
-
                     },
                     price: {
                         required: "租金不能为空",
@@ -105,18 +83,12 @@
                     },
                     chuzu_idcard: {
                         required: "出租方证件号不能为空",
-
-
                     },
                     zuke: {
                         required: "承租方不能为空",
-
-
                     },
                     zuke_idcard: {
                         required: "承租方证件号不能为空",
-
-
                     },
                     fromDate: {
                         required: "起租时间不能为空",
@@ -129,14 +101,10 @@
                         min: "每月交租日必须大于0",
                         max: "每月交租日必须小于31",
                     }
-
                 }
             });
         })
-
-
     </script>
-
 </head>
 <body>
 
@@ -145,7 +113,7 @@
 </div>
 <div class="result-content">
     <div class="sidebar-title">
-        <form action="<%=basePath %>/hetong/changehetong.action" method="post" id="myform" name="myform"
+        <form action="<%=basePath%>/hetong/changehetong.action" method="post" id="myform" name="myform"
               enctype="multipart/form-data">
             <table class="insert-tab" width="100%">
                 <tbody>
