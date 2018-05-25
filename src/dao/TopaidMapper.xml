@@ -3,35 +3,31 @@
 <mapper namespace="dao.TopaidMapper">
     <resultMap id="BaseResultMap" type="Pojo.ToPaid">
         <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="houseId" property="houseId" jdbcType="VARCHAR"/>
+        <result column="house_id" property="houseId" jdbcType="VARCHAR"/>
         <result column="address" property="address" jdbcType="VARCHAR"/>
         <result column="price" property="price" jdbcType="DOUBLE"/>
         <result column="date" property="date" jdbcType="DATE"/>
-
         <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="userListId" property="userListId" jdbcType="INTEGER"/>
+        <result column="userlist_id" property="userListId" jdbcType="INTEGER"/>
         <result column="status" property="status" jdbcType="VARCHAR"/>
     </resultMap>
-    <insert id="inserttopaid" parameterType="Pojo.ToPaid">
-	  insert into topaid(houseId,address,price,date,status,name,userListId)
+    <insert id="insertToPaid" parameterType="Pojo.ToPaid">
+	  insert into topaid (house_id,address,price,date,status,name,userlist_id)
 	  values(#{houseId},#{address},#{price},#{date},#{status},#{name},#{userListId})
 	</insert>
 
-    <select id="findtopaid" parameterType="Pojo.QueryVo" resultMap="BaseResultMap">
+    <select id="findToPaid" parameterType="Pojo.QueryVo" resultMap="BaseResultMap">
         select * from topaid
         <where>
-
             <if test="userListId!=null and userListId!=''">
-                and userListId=#{userListId}
+                and userlist_id=#{userListId}
             </if>
-
         </where>
     </select>
-    <select id="findbyid" parameterType="Integer" resultType="Pojo.ToPaid">
-		select * from topaid 
-		  where id=#{id}
+    <select id="findById" parameterType="Integer" resultType="Pojo.ToPaid">
+		select * from topaid where id=#{id}
 	</select>
-    <delete id="deletetopaid" parameterType="Integer">
+    <delete id="deleteToPaid" parameterType="Integer">
 		delete from topaid  where id=#{id}
 	</delete>
 </mapper>

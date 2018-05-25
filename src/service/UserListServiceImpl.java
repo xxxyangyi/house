@@ -17,37 +17,37 @@ public class UserListServiceImpl implements UserListService {
 
     @Override
     public UserList findHasUserList(Integer userId) {
-        UserList userList = userListMapper.findhasuserlist(userId);
+        UserList userList = userListMapper.findHasUserList(userId);
         return userList;
     }
 
     @Override
     public UserList checkUserList(String idCard) {
-        UserList userList = userListMapper.checkuserlist(idCard);
+        UserList userList = userListMapper.checkUserList(idCard);
         return userList;
     }
 
     @Override
     public void insertUserList(UserList userList) {
-        userListMapper.insertuserlist(userList);
+        userListMapper.insertUserList(userList);
 
     }
 
     @Override
     public void updateUserList(UserList userList) {
-        userListMapper.updateuserlist(userList);
+        userListMapper.updateUserList(userList);
 
     }
 
     @Override
     public UserList findUserListUpdate(UserList userList) {
-        UserList list = userListMapper.finduserlistupdate(userList);
+        UserList list = userListMapper.findUserListUpdate(userList);
         return list;
     }
 
     @Override
     public List<UserList> getUserZuList(Integer id) {
-        List<UserList> userList = userListMapper.getUserzuList(id);
+        List<UserList> userList = userListMapper.getUserZuList(id);
         for (UserList list : userList) {
             System.out.println(list);
         }
@@ -56,32 +56,32 @@ public class UserListServiceImpl implements UserListService {
 
     @Override
     public List<UserList> getMyCheckout(Integer id) {
-        List<UserList> list = userListMapper.getmycheckout(id);
+        List<UserList> list = userListMapper.getMyCheckout(id);
         return list;
     }
 
     @Override
     public List<UserList> getMyApply(Integer id) {
-        List<UserList> list = userListMapper.getmyapply(id);
+        List<UserList> list = userListMapper.getMyApply(id);
         return list;
     }
 
     @Override
     public List<UserList> getMyApplyOut(Integer id) {
-        List<UserList> list = userListMapper.getmyapplyout(id);
+        List<UserList> list = userListMapper.getMyApplyOut(id);
         return list;
     }
 
     @Override
     public List<UserList> findAllUserList() {
-        List<UserList> list = userListMapper.findalluserlist();
+        List<UserList> list = userListMapper.findAllUserList();
         return list;
     }
 
     @Override
     public void deleteUserList(Integer id) {
-        userListMapper.deleteuserlist(id);
-        userListMapper.deleteuser(id);
+        userListMapper.deleteUserList(id);
+        userListMapper.deleteUser(id);
     }
 
 }

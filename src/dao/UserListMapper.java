@@ -5,27 +5,27 @@ import Pojo.UserList;
 import java.util.List;
 
 public interface UserListMapper {
-    UserList findhasuserlist(Integer user_id);
+    UserList findHasUserList(Integer userId);
 
-    UserList checkuserlist(String idcard);
+    UserList checkUserList(String idCard);
 
-    void insertuserlist(UserList userList);
+    void insertUserList(UserList userList);
 
-    void updateuserlist(UserList userList);
+    void updateUserList(UserList userList);
 
-    UserList finduserlistupdate(UserList userList);
+    UserList findUserListUpdate(UserList userList);
 
-    public List<UserList> getUserzuList(Integer id);
+    List<UserList> getUserZuList(Integer id);
 
-    public List<UserList> getmycheckout(Integer id);
+    List<UserList> getMyCheckout(Integer id);
 
-    public List<UserList> getmyapply(Integer id);
+    List<UserList> getMyApply(Integer id);
 
-    public List<UserList> getmyapplyout(Integer id);
+    List<UserList> getMyApplyOut(Integer id);
 
-    public List<UserList> findalluserlist();
+    List<UserList> findAllUserList();
 
-    public void deleteuser(Integer id);
+    void deleteUser(Integer id);
 
-    public void deleteuserlist(Integer id);
+    void deleteUserList(Integer id);
 }

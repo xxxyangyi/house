@@ -6,11 +6,11 @@ import Pojo.Wrong;
 import java.util.List;
 
 public interface WrongMapper {
-    public List<Wrong> findwrong(QueryVo vo);
+    List<Wrong> findWrong(QueryVo vo);
 
-    public Wrong findbyid(Integer id);
+    Wrong findById(Integer id);
 
-    public void insertwrong(Wrong wrong);
+    void insertWrong(Wrong wrong);
 
-    public void deletewrong(Integer id);
+    void deleteWrong(Integer id);
 }

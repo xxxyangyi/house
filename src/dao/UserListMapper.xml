@@ -4,14 +4,14 @@
     <resultMap id="applyResultMap" type="Pojo.UserList">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
+        <result column="idcard" property="idCard" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
-        <result column="userId" property="userId" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
         <collection property="apply" ofType="Pojo.Apply">
             <id property="id" column="apply_id"/>
             <!--用户id已经在user对象中存在，此处可以不设置-->
             <!-- <result property="userId" column="id"/> -->
-            <result property="houseId" column="houseId"/>
+            <result property="house_id" column="houseId"/>
             <result property="address" column="address"/>
             <result property="area" column="area"/>
             <result property="price" column="price"/>
@@ -22,9 +22,9 @@
     <resultMap id="zuResultMap" type="Pojo.UserList">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
+        <result column="idcard" property="idCard" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
-        <result column="userId" property="userId" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
         <collection property="zuList" ofType="Pojo.ZuList">
             <id property="zid" column="zid"/>
             <!--用户id已经在user对象中存在，此处可以不设置-->
@@ -42,33 +42,31 @@
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
-        <result column="userId" property="userId" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
         <collection property="checkout" ofType="Pojo.Checkout">
             <id property="id" column="cid"/>
             <!--用户id已经在user对象中存在，此处可以不设置-->
             <!-- <result property="userId" column="id"/> -->
-            <result property="houseId" column="houseId"/>
+            <result property="houseId" column="house_id"/>
             <result property="address" column="address"/>
-            <result property="userListId" column="userListId"/>
-
+            <result property="userListId" column="userlist_id"/>
             <result property="status" column="status"/>
         </collection>
 
     </resultMap>
-    <resultMap id="applyoutResultMap" type="Pojo.UserList">
+    <resultMap id="applyOutResultMap" type="Pojo.UserList">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="idCard" property="idCard" jdbcType="VARCHAR"/>
+        <result column="idcard" property="idCard" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
-        <result column="userId" property="userId" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
         <collection property="applyOut" ofType="Pojo.ApplyOut">
             <id property="id" column="aoid"/>
             <!--用户id已经在user对象中存在，此处可以不设置-->
             <!-- <result property="userId" column="id"/> -->
-            <result property="houseId" column="houseId"/>
+            <result property="houseId" column="house_id"/>
             <result property="address" column="address"/>
-            <result property="userListId" column="userListId"/>
-
+            <result property="userListId" column="userlist_id"/>
             <result property="status" column="status"/>
         </collection>
 
@@ -85,66 +83,50 @@
             <result column="username" property="username"/>
             <result column="password" property="password"/>
         </association>
-
-
     </resultMap>
-    <delete id="deleteuser" parameterType="Integer">
-  delete from user where id=#{id}
-  </delete>
-    <delete id="deleteuserlist" parameterType="Integer">
-  delete from userList where userId=#{id}
-  </delete>
-    <select id="findalluserlist" resultMap="userMap">
-		SELECT
-	u.*, ul.*
-FROM
-	`user` u
-, userList ul where u.id = ul.userId and u.type='zuke'
-	</select>
-    <select id="findhasuserlist" parameterType="Integer" resultType="Pojo.UserList">
-		select * from userList where userId=#{userId}
+
+    <delete id="deleteUser" parameterType="Integer">
+        delete from user where id=#{id}
+    </delete>
+
+    <delete id="deleteUserList" parameterType="Integer">
+        delete from userlist where user_id=#{id}
+    </delete>
+
+    <select id="findAllUserList" resultMap="userMap">
+		SELECT u.*, ul.* FROM `user` u, userlist ul where u.id = ul.user_id and u.type='zuke'
 	</select>
 
-    <select id="checkuserlist" parameterType="String" resultType="Pojo.UserList">
-		select * from userList where idCard=#{idCard}
+    <select id="findHasUserList" parameterType="Integer" resultType="Pojo.UserList">
+		select * from userlist where user_id=#{userId}
 	</select>
-    <insert id="insertuserlist" parameterType="Pojo.UserList">
-	  insert into userList(name,idCard,phone,userId)
+
+    <select id="checkUserList" parameterType="String" resultType="Pojo.UserList">
+		select * from userlist where idcard=#{idCard}
+	</select>
+
+    <insert id="insertUserList" parameterType="Pojo.UserList">
+	  insert into userList(name,idcard,phone,user_id)
 	  values(#{name},#{idCard},#{phone},#{userId})
 	</insert>
-    <select id="finduserlistupdate" parameterType="Pojo.UserList" resultType="Pojo.UserList">
-		select * from userList where idCard=#{idCard} and id!=#{id}
+
+    <select id="findUserListUpdate" parameterType="Pojo.UserList" resultType="Pojo.UserList">
+		select * from userlist where idcard=#{idCard} and id!=#{id}
 	</select>
-    <update id="updateuserlist" parameterType="Pojo.UserList">
-		update userList set name=#{name},idCard=#{idCard},phone=#{phone}
-		where id=#{id}
-</update>
-    <select id="getUserzuList" resultMap="zuResultMap" parameterType="Integer">
-		SELECT
-	u.*, z.*
-FROM
-	`userList` u
-, zuList z where u.id = z.userListId and u.id=#{id}
+
+    <update id="updateUserList" parameterType="Pojo.UserList">
+		update userlist set name=#{name},idcard=#{idCard},phone=#{phone} where id=#{id}
+    </update>
+    <select id="getUserZuList" resultMap="zuResultMap" parameterType="Integer">
+		SELECT u.*, z.* FROM `userlist` u, zulist z where u.id = z.userlist_id and u.id=#{id}
 	</select>
-    <select id="getmycheckout" resultMap="checkoutResultMap" parameterType="Integer">
-		SELECT
-	u.*, c.*
-FROM
-	`userList` u
-, checkout c where u.id = c.userListId and u.id=#{id}
+    <select id="getMyCheckout" resultMap="checkoutResultMap" parameterType="Integer">
+		SELECT u.*, c.* FROM `userlist` u, checkout c where u.id = c.userListId and u.id=#{id}
 	</select>
-    <select id="getmyapply" resultMap="applyResultMap" parameterType="Integer">
-		SELECT
-	u.*, a.*
-FROM
-	`userList` u
-, apply a where u.id = a.userListId and u.id=#{id}
+    <select id="getMyApply" resultMap="applyResultMap" parameterType="Integer">
+		SELECT	u.*, a.* FROM `userlist` u, apply a where u.id = a.userlist_id and u.id=#{id}
 	</select>
-    <select id="getmyapplyout" resultMap="applyoutResultMap" parameterType="Integer">
-		SELECT
-	u.*, a.*
-FROM
-	`userList` u
-, applyOut a where u.id = a.userListId and u.id=#{id}
+    <select id="getMyApplyOut" resultMap="applyOutResultMap" parameterType="Integer">
+		SELECT u.*, a.* FROM `userlist` u, applyout a where u.id = a.userlist_id and u.id=#{id}
 	</select>
 </mapper>

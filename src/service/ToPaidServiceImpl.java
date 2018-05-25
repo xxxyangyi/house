@@ -22,25 +22,25 @@ public class ToPaidServiceImpl implements ToPaidService {
     @Override
     public void insertToPaid(ToPaid topaid) {
         topaid.setStatus("租金未缴");
-        topaidMapper.inserttopaid(topaid);
+        topaidMapper.insertToPaid(topaid);
     }
 
     @Override
     public List<ToPaid> findToPaid(QueryVo vo) {
-        List<ToPaid> list = topaidMapper.findtopaid(vo);
+        List<ToPaid> list = topaidMapper.findToPaid(vo);
         return list;
     }
 
     @Override
     public ToPaid findById(Integer id) {
-        ToPaid topaid = topaidMapper.findbyid(id);
+        ToPaid topaid = topaidMapper.findById(id);
         return topaid;
     }
 
     @Override
     public void gotoPay(Integer id, Paid paid) {
-        paidMapper.insertpaid(paid);
-        topaidMapper.deletetopaid(id);
+        paidMapper.insertPaid(paid);
+        topaidMapper.deleteToPaid(id);
 
     }
 

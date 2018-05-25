@@ -3,34 +3,34 @@
 <mapper namespace="dao.WrongMapper">
     <resultMap id="BaseResultMap" type="Pojo.Wrong">
         <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="houseId" property="houseId" jdbcType="VARCHAR"/>
+        <result column="house_id" property="houseId" jdbcType="VARCHAR"/>
         <result column="address" property="address" jdbcType="VARCHAR"/>
-
         <result column="date" property="date" jdbcType="DATE"/>
         <result column="detail" property="detail" jdbcType="VARCHAR"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="userListId" property="userListId" jdbcType="INTEGER"/>
+        <result column="userlist_id" property="userListId" jdbcType="INTEGER"/>
         <result column="status" property="status" jdbcType="VARCHAR"/>
     </resultMap>
-    <select id="findwrong" parameterType="Pojo.QueryVo" resultMap="BaseResultMap">
+
+    <select id="findWrong" parameterType="Pojo.QueryVo" resultMap="BaseResultMap">
         select * from wrong
         <where>
-
             <if test="userListId!=null and userListId!=''">
-                and userListId=#{userListId}
+                and userlist_id=#{userListId}
             </if>
-
         </where>
     </select>
-    <select id="findbyid" parameterType="Integer" resultType="Pojo.Wrong">
-		select * from wrong 
-		  where id=#{id}
+
+    <select id="findById" parameterType="Integer" resultType="Pojo.Wrong">
+		select * from wrong where id=#{id}
 	</select>
-    <insert id="insertwrong" parameterType="Pojo.Wrong">
-		 insert into wrong(houseId,address,date,detail,status,name,userListId)
-	  values(#{houseId},#{address},#{date},#{detail},#{status},#{name},#{userListId})
+
+    <insert id="insertWrong" parameterType="Pojo.Wrong">
+		 insert into wrong(house_id,address,date,detail,status,name,userlist_id)
+	       values(#{houseId},#{address},#{date},#{detail},#{status},#{name},#{userListId})
 	</insert>
-    <delete id="deletewrong" parameterType="Integer">
+
+    <delete id="deleteWrong" parameterType="Integer">
 		delete from wrong  where id=#{id}
 	</delete>
 </mapper>

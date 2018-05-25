@@ -5,13 +5,13 @@ import Pojo.Schedule;
 import java.util.List;
 
 public interface ScheduleMapper {
-    public void insertschedule(Schedule schedule);
+    void insertSchedule(Schedule schedule);
 
-    public List<Schedule> selectAll();
+    List<Schedule> selectAll();
 
-    public void deleteschedule(Integer id);
+    void deleteSchedule(Integer id);
 
-    public void updateschedule(Schedule schedule);
+    void updateSchedule(Schedule schedule);
 
-    public Schedule selectbyid(Integer id);
+    Schedule selectById(Integer id);
 }

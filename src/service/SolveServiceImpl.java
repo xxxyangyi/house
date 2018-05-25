@@ -21,45 +21,45 @@ public class SolveServiceImpl implements SolveService {
 
     @Override
     public List<Solve> selectAll(QueryVo vo) {
-        List<Solve> list = solveMapper.selectall(vo);
+        List<Solve> list = solveMapper.selectAll(vo);
         return list;
     }
 
     @Override
     public Integer selectCount(QueryVo vo) {
-        Integer count = solveMapper.selectcount(vo);
+        Integer count = solveMapper.selectCount(vo);
         return count;
     }
 
     @Override
     public void deleteSolve(Integer id) {
-        solveMapper.deletesolve(id);
+        solveMapper.deleteSolve(id);
 
     }
 
     @Override
     public List<Wrong> findWrong(QueryVo vo) {
-        List<Wrong> list = wrongMapper.findwrong(vo);
+        List<Wrong> list = wrongMapper.findWrong(vo);
         return list;
     }
 
     @Override
     public Wrong findById(Integer id) {
-        Wrong wrong = wrongMapper.findbyid(id);
+        Wrong wrong = wrongMapper.findById(id);
         return wrong;
     }
 
     @Override
     public void insertWrong(Wrong wrong) {
         wrong.setStatus("待处理");
-        wrongMapper.insertwrong(wrong);
+        wrongMapper.insertWrong(wrong);
 
     }
 
     @Override
     public void gotoSolve(Integer id, Solve solve) {
-        solveMapper.insertsolve(solve);
-        wrongMapper.deletewrong(id);
+        solveMapper.insertSolve(solve);
+        wrongMapper.deleteWrong(id);
 
     }
 

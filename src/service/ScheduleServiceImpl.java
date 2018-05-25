@@ -16,7 +16,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     @Override
     public void insertSchedule(Schedule schedule) {
-        scheduleMapper.insertschedule(schedule);
+        scheduleMapper.insertSchedule(schedule);
 
     }
 
@@ -28,19 +28,19 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     @Override
     public void deleteSchedule(Integer id) {
-        scheduleMapper.deleteschedule(id);
+        scheduleMapper.deleteSchedule(id);
 
     }
 
     @Override
     public void updateSchedule(Schedule schedule) {
-        scheduleMapper.updateschedule(schedule);
+        scheduleMapper.updateSchedule(schedule);
 
     }
 
     @Override
     public Schedule selectById(Integer id) {
-        Schedule schedule = scheduleMapper.selectbyid(id);
+        Schedule schedule = scheduleMapper.selectById(id);
         return schedule;
     }
 

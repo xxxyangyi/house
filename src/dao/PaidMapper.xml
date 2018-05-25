@@ -3,20 +3,18 @@
 <mapper namespace="dao.PaidMapper">
     <resultMap id="BaseResultMap" type="Pojo.Paid">
         <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="houseId" property="houseId" jdbcType="VARCHAR"/>
+        <result column="house_id" property="houseId" jdbcType="VARCHAR"/>
         <result column="address" property="address" jdbcType="VARCHAR"/>
         <result column="price" property="price" jdbcType="DOUBLE"/>
         <result column="date" property="date" jdbcType="DATE"/>
-        <result column="payDate" property="payDate" jdbcType="DATE"/>
+        <result column="paydate" property="payDate" jdbcType="DATE"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="userListId" property="userListId" jdbcType="INTEGER"/>
+        <result column="userlist_id" property="userListId" jdbcType="INTEGER"/>
         <result column="status" property="status" jdbcType="VARCHAR"/>
     </resultMap>
-    <select id="selectall" resultMap="BaseResultMap" parameterType="Pojo.QueryVo">
-        select *
-        from paid
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="Pojo.QueryVo">
+        select * from paid
         <where>
-
             <if test="zuName!=null and zuName!=''">
                 and name like '%${zuName}%'
             </if>
@@ -30,13 +28,10 @@
                 and userListId=#{userListId}
             </if>
         </where>
-
     </select>
-    <select id="selectsum" resultType="Double" parameterType="Pojo.QueryVo">
-        select SUM(price)
-        from paid
+    <select id="selectSum" resultType="Double" parameterType="Pojo.QueryVo">
+        select SUM(price) from paid
         <where>
-
             <if test="zuName!=null and zuName!=''">
                 and name like '%${zuName}%'
             </if>
@@ -47,16 +42,15 @@
                 and date &lt;= #{toDate}
             </if>
             <if test="userListId!=null and userListId!=''">
-                and userListId=#{userListId}
+                and userlist_id=#{userListId}
             </if>
         </where>
-
     </select>
-    <delete id="deletepaid" parameterType="Integer">
+    <delete id="deletePaid" parameterType="Integer">
 		delete from paid  where id=#{id}
 	</delete>
-    <insert id="insertpaid" parameterType="Pojo.Paid">
-		 insert into paid(houseId,address,price,date,payDate,status,name,userListId)
+    <insert id="insertPaid" parameterType="Pojo.Paid">
+		 insert into paid(house_id,address,price,date,paydate,status,name,userlist_id)
 	  values(#{houseId},#{address},#{price},#{date},#{payDate},#{status},#{name},#{userListId})
 	</insert>
 </mapper>

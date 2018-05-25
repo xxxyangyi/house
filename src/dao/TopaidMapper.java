@@ -6,11 +6,11 @@ import Pojo.ToPaid;
 import java.util.List;
 
 public interface TopaidMapper {
-    public void inserttopaid(ToPaid topaid);
+    void insertToPaid(ToPaid topaid);
 
-    public List<ToPaid> findtopaid(QueryVo vo);
+    List<ToPaid> findToPaid(QueryVo vo);
 
-    public ToPaid findbyid(Integer id);
+    ToPaid findById(Integer id);
 
-    public void deletetopaid(Integer id);
+    void deleteToPaid(Integer id);
 }

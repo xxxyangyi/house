@@ -17,35 +17,35 @@ public class PaidServiceImpl implements PaidService {
     @Autowired
     private PaidMapper paidMapper;
     @Autowired
-    private ZuListMapper zulistMapper;
+    private ZuListMapper zuListMapper;
 
     @Override
     public List<Paid> selectAll(QueryVo vo) {
-        List<Paid> list = paidMapper.selectall(vo);
+        List<Paid> list = paidMapper.selectAll(vo);
         return list;
     }
 
     @Override
     public Double selectSum(QueryVo vo) {
-        Double sum = paidMapper.selectsum(vo);
+        Double sum = paidMapper.selectSum(vo);
         return sum;
     }
 
     @Override
     public void deletePaid(Integer id) {
-        paidMapper.deletepaid(id);
+        paidMapper.deletePaid(id);
 
     }
 
     @Override
     public List<ZuList> findZuUserList() throws Exception {
-        List<ZuList> list = zulistMapper.findZuUserList();
+        List<ZuList> list = zuListMapper.findZuUserList();
         return list;
     }
 
     @Override
     public ZuList findzukeZuList(Integer id) {
-        ZuList zulist = zulistMapper.findZukeZuList(id);
+        ZuList zulist = zuListMapper.findZukeZuList(id);
         return zulist;
     }
 
